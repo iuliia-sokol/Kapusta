@@ -3,10 +3,8 @@ import styled from '@emotion/styled';
 export const MainContainer = styled.div`
   box-sizing: border-box;
   min-width: 280px;
-
   display: flex;
   flex-wrap: wrap;
-
   background-color: #f5f6fb;
   border-bottom-left-radius: 64px;
 
@@ -27,7 +25,7 @@ export const MainContainer = styled.div`
     min-width: 1034px;
     height: 44px;
 
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
 
     background-color: #ffffff;
     border-bottom-left-radius: 0;
