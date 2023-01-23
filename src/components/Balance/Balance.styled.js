@@ -2,28 +2,26 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const BalanceContainer = styled.div`
-  height: 44px;
-
-  position: relative;
-
+  height: auto;
+  flex-direction: column-reverse;
+  padding-top: 47px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
-  padding-top: 40px;
-  margin: 0 auto;
-
   background-color: transparent;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     justify-content: space-between;
+    height: 44px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 40px;
   }
 
-  @media screen and (max-width: 480px) {
-    height: auto;
-
-    flex-direction: column-reverse;
-  }
+  /* @media screen and (max-width: 480px) {
+  
+  } */
 `;
 
 export const PortalContainer = styled.div`
@@ -168,7 +166,8 @@ export const StyledBtn = styled.button`
   background-color: ${p => p.theme.colors.BgGray};
 
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 400ms cubic-bezier(0.4, 0, 0.2, 1), border 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   border: 2px solid #ffffff;
   border-radius: 16px;

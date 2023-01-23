@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   box-sizing: border-box;
@@ -33,20 +33,19 @@ export const MainContainer = styled.div`
 `;
 
 export const InputForm = styled.form`
+  display: ${p => (p.isShown ? 'flex' : 'none')};
   box-sizing: border-box;
-
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
   min-width: 280px;
 
   @media screen and (min-width: 768px) and (max-width: 1279.5px) {
     width: 624px;
     min-width: 624px;
     height: 44px;
-
+    margin-top: 24px;
+    margin-bottom: 32px;
     row-gap: 34px;
     column-gap: 34px;
   }
@@ -55,6 +54,8 @@ export const InputForm = styled.form`
     display: inline-flex;
     flex-wrap: nowrap;
     column-gap: 32px;
+    margin-top: 34px;
+    margin-bottom: 32px;
 
     min-width: 1034px;
     width: 1034px;
@@ -152,23 +153,35 @@ export const InputProduct = styled(Input)`
   }
 `;
 
+export const SelectAmountWrapper = styled.div`
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  justify-content: center;
+  margin: 12px 0;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+`;
 export const InputAmountWrapper = styled.div`
+  box-sizing: border-box;
   position: relative;
+  display: flex;
 
-  @media screen and (max-width: 767.9px) {
-    display: flex;
-    position: relative;
-
-    margin-top: 34px;
-    margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
-
-    width: 183px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
-    display: flex;
-    position: relative;
+
+  @media screen and (min-width: 1280px) {
+    /* width: 183px; */
   }
 `;
 
@@ -176,19 +189,16 @@ export const InputAmount = styled(Input)`
   width: 100%;
   text-align: right;
   padding-right: 42px;
-
   border-radius: 16px;
 
   @media screen and (min-width: 768px) and (max-width: 1279.5px) {
     flex-shrink: 0;
     width: 110px;
-
     border-radius: 0 16px 16px 0;
     //   overflow: hidden;
   }
   @media screen and (min-width: 1280px) {
-    width: 120px;
-    border-radius: 0 16px 16px 0;
+    /* width: 120px; */
   }
 `;
 
