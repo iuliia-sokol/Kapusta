@@ -8,35 +8,37 @@ export const BalanceContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  gap: 40px;
+  margin-bottom: 40px;
   background-color: transparent;
 
   @media screen and (min-width: 768px) {
+    flex-direction: row;
     justify-content: space-between;
     height: 44px;
     margin: 0 auto;
+    gap: 0;
+    margin-bottom: 60px;
     position: relative;
     padding-top: 40px;
+    align-items: center;
   }
 
-  /* @media screen and (max-width: 480px) {
-  
-  } */
+  @media screen and (min-width: 1280px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const PortalContainer = styled.div`
   height: 0;
   width: 125px;
-
   padding-left: 68px;
   padding-right: 141px;
 `;
 
 export const AbsoluteContainer = styled(BalanceContainer)`
   box-sizing: border-box;
-
   top: 144px;
-
   height: 0;
   width: 100%;
 
@@ -44,6 +46,7 @@ export const AbsoluteContainer = styled(BalanceContainer)`
 
   margin: 0 auto;
   padding: 0 91px;
+
   @media screen and (max-width: 768px) {
     padding: 0 32px;
   }
@@ -57,25 +60,21 @@ export const AbsoluteContainer = styled(BalanceContainer)`
 `;
 
 export const BalanceForm = styled.div`
-  position: absolute;
-
-  left: 50%;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 8px;
 
-  transform: translate(-50%, 0);
-
-  @media screen and (max-width: 768px) {
-    position: static;
-
-    transform: translate(0, 0);
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0;
   }
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
 
-    margin-top: 40px;
+  @media screen and (min-width: 1280px) {
+    align-self: center;
+    justify-content: center;
+    flex-grow: 3;
   }
 `;
 
@@ -194,21 +193,22 @@ export const StyledBtn = styled.button`
 export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
-
   font-size: 12px;
   line-height: 1.67;
   letter-spacing: 0.04em;
-
   text-decoration: none;
-
   color: rgba(82, 85, 95, 0.7);
-
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   cursor: pointer;
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.PrimaryOrange};
+  }
+
+  @media screen and (min-width: 1280px) {
+    /* flex-grow: 1; */
+    justify-content: flex-end;
   }
 `;
 

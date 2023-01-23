@@ -73,6 +73,7 @@ export const TransactWrapper = styled.div`
 
 export const SummaryWrapper = styled.div`
   display: none;
+
   @media screen and (min-width: 1280px) {
     display: block;
   }

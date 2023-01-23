@@ -1,20 +1,18 @@
 import styled from 'styled-components';
 
 export const SummaryList = styled.ul`
-  display: none;
+  padding: 0;
+  margin: 0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+  list-style: none;
+  flex-direction: column;
+  gap: 2px;
+  width: 213px;
+  margin-top: 80px;
   @media screen and (min-width: 768px) {
-    padding: 0;
-    margin: 0;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    overflow: hidden;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    width: 213px;
-    margin-top: 80px;
   }
 `;
 
