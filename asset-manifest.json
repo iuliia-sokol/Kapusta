@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/kapusta/static/css/main.7b03518a.css",
-    "main.js": "/kapusta/static/js/main.63197468.js",
+    "main.js": "/kapusta/static/js/main.4a57b845.js",
     "static/js/131.15f48923.chunk.js": "/kapusta/static/js/131.15f48923.chunk.js",
     "static/js/164.ff8133fa.chunk.js": "/kapusta/static/js/164.ff8133fa.chunk.js",
     "static/css/694.287bc8a4.chunk.css": "/kapusta/static/css/694.287bc8a4.chunk.css",
-    "static/js/694.33801dc5.chunk.js": "/kapusta/static/js/694.33801dc5.chunk.js",
+    "static/js/694.ce0a0227.chunk.js": "/kapusta/static/js/694.ce0a0227.chunk.js",
     "static/js/626.266a74d2.chunk.js": "/kapusta/static/js/626.266a74d2.chunk.js",
     "static/js/0.72017c42.chunk.js": "/kapusta/static/js/0.72017c42.chunk.js",
     "static/js/236.589b32ae.chunk.js": "/kapusta/static/js/236.589b32ae.chunk.js",
@@ -19,11 +19,11 @@
     "index.html": "/kapusta/index.html",
     "static/media/eye-open.svg": "/kapusta/static/media/eye-open.2b98a88a152dcc0cdc9bb4b6fd939b1e.svg",
     "main.7b03518a.css.map": "/kapusta/static/css/main.7b03518a.css.map",
-    "main.63197468.js.map": "/kapusta/static/js/main.63197468.js.map",
+    "main.4a57b845.js.map": "/kapusta/static/js/main.4a57b845.js.map",
     "131.15f48923.chunk.js.map": "/kapusta/static/js/131.15f48923.chunk.js.map",
     "164.ff8133fa.chunk.js.map": "/kapusta/static/js/164.ff8133fa.chunk.js.map",
     "694.287bc8a4.chunk.css.map": "/kapusta/static/css/694.287bc8a4.chunk.css.map",
-    "694.33801dc5.chunk.js.map": "/kapusta/static/js/694.33801dc5.chunk.js.map",
+    "694.ce0a0227.chunk.js.map": "/kapusta/static/js/694.ce0a0227.chunk.js.map",
     "626.266a74d2.chunk.js.map": "/kapusta/static/js/626.266a74d2.chunk.js.map",
     "0.72017c42.chunk.js.map": "/kapusta/static/js/0.72017c42.chunk.js.map",
     "236.589b32ae.chunk.js.map": "/kapusta/static/js/236.589b32ae.chunk.js.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.7b03518a.css",
-    "static/js/main.63197468.js"
+    "static/js/main.4a57b845.js"
   ]
 }
