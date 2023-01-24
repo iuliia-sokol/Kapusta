@@ -138,7 +138,7 @@ export default function InputTransactionForm({ type }) {
 
   return (
     <MainContainer>
-      <ShowFormButton onClick={onButtonModalClick} />
+      <ShowFormButton showForm={showForm} onClick={onButtonModalClick} />
       <InputForm isShown={showForm}>
         <DatePickerComponent
           name="date"

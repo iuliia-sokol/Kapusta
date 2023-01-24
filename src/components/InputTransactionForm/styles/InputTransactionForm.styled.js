@@ -34,6 +34,7 @@ export const InputForm = styled.form`
   min-width: 280px;
 
   @media screen and (min-width: 768px) {
+    display: flex;
     flex-direction: row;
     row-gap: 34px;
     column-gap: 34px;
