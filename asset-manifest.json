@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/kapusta/static/css/main.8821a5e5.css",
-    "main.js": "/kapusta/static/js/main.3b1090d2.js",
+    "main.js": "/kapusta/static/js/main.48413b42.js",
     "static/js/131.4164fa91.chunk.js": "/kapusta/static/js/131.4164fa91.chunk.js",
     "static/js/164.7b7c1492.chunk.js": "/kapusta/static/js/164.7b7c1492.chunk.js",
     "static/css/803.ac31b12a.chunk.css": "/kapusta/static/css/803.ac31b12a.chunk.css",
-    "static/js/803.48abc077.chunk.js": "/kapusta/static/js/803.48abc077.chunk.js",
+    "static/js/803.da18b07f.chunk.js": "/kapusta/static/js/803.da18b07f.chunk.js",
     "static/js/886.c7e6ff62.chunk.js": "/kapusta/static/js/886.c7e6ff62.chunk.js",
     "static/js/0.72017c42.chunk.js": "/kapusta/static/js/0.72017c42.chunk.js",
     "static/js/603.bc56e8e0.chunk.js": "/kapusta/static/js/603.bc56e8e0.chunk.js",
@@ -19,11 +19,11 @@
     "index.html": "/kapusta/index.html",
     "static/media/eye-open.svg": "/kapusta/static/media/eye-open.2b98a88a152dcc0cdc9bb4b6fd939b1e.svg",
     "main.8821a5e5.css.map": "/kapusta/static/css/main.8821a5e5.css.map",
-    "main.3b1090d2.js.map": "/kapusta/static/js/main.3b1090d2.js.map",
+    "main.48413b42.js.map": "/kapusta/static/js/main.48413b42.js.map",
     "131.4164fa91.chunk.js.map": "/kapusta/static/js/131.4164fa91.chunk.js.map",
     "164.7b7c1492.chunk.js.map": "/kapusta/static/js/164.7b7c1492.chunk.js.map",
     "803.ac31b12a.chunk.css.map": "/kapusta/static/css/803.ac31b12a.chunk.css.map",
-    "803.48abc077.chunk.js.map": "/kapusta/static/js/803.48abc077.chunk.js.map",
+    "803.da18b07f.chunk.js.map": "/kapusta/static/js/803.da18b07f.chunk.js.map",
     "886.c7e6ff62.chunk.js.map": "/kapusta/static/js/886.c7e6ff62.chunk.js.map",
     "0.72017c42.chunk.js.map": "/kapusta/static/js/0.72017c42.chunk.js.map",
     "603.bc56e8e0.chunk.js.map": "/kapusta/static/js/603.bc56e8e0.chunk.js.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.8821a5e5.css",
-    "static/js/main.3b1090d2.js"
+    "static/js/main.48413b42.js"
   ]
 }
