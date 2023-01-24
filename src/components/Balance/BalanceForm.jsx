@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBalance } from 'redux/transactions/transactionsSelectors';
@@ -18,20 +18,12 @@ import { Popup } from 'components/Popup/Popup';
 import { fetchUserBalance } from 'redux/transactions/transactionsOps';
 import { notifySettings } from '../../utils/notifySettings';
 import Notiflix from 'notiflix';
-
-export const formating = data => {
-  const fixedData = data.toFixed(2);
-  if (data < 10) return '0' + fixedData;
-
-  const dividedData = fixedData.split('.');
-
-  const spacedData = Number(dividedData[0]).toLocaleString().split(',').join(' ');
-  return spacedData + '.' + dividedData[1];
-};
+import { formattingSum } from 'utils/formattingSum';
 
 export function BalanceFrom() {
-  const balance = useSelector(selectBalance);
-  const token = useSelector(state => state.auth.accessToken);
+  const dispatch = useDispatch();
+
+  const savedBalance = useSelector(selectBalance);
 
   const [popup, setPopup] = useState({
     isShow: false,
@@ -39,35 +31,29 @@ export function BalanceFrom() {
     action: null,
   });
 
-  const dispatch = useDispatch();
+  const [balance, setBalance] = useState(savedBalance ?? 0);
 
-  const [value, setValue] = useState(balance ?? 0);
+  useEffect(() => {
+    setBalance(savedBalance);
+  }, [savedBalance]);
 
-  const onBlur = evt => {
-    const data = evt.target.value.split(' ').join('');
-    const number = Number(data);
-
-    if(number<1){
-      evt.target.value=formating(value);
-      Notiflix.Notify.warning(
-        `The minimum value is 01.00!`,
-        notifySettings
-      );
-      return;
-    }
-    if (number <= 1000000) {
-      setValue(number);
-      evt.target.value = formating(number);
-    } else {
-      evt.target.value = formating(value);
-    }
+  const handleChange = ({ target: { value } }) => {
+    // const num = value.toFixed(2);
+    setBalance(value);
+    console.log(formattingSum(+value));
   };
 
   const onClick = () => {
+    if (Number(balance) === 0) {
+      setBalance(prev => savedBalance);
+      Notiflix.Notify.warning(`Balance cannot be "0"!`, notifySettings);
+      return;
+    }
+
     setPopup({
       isShow: true,
       title: 'Are you sure?',
-      action: () => dispatch(fetchUserBalance({ value, token })),
+      action: () => dispatch(fetchUserBalance({ balance })),
     });
     document.querySelector('#modal').classList.add('js-action');
   };
@@ -80,12 +66,18 @@ export function BalanceFrom() {
           <CurrentBalanceContainer>
             <CurrentBalance>
               <Input
-                type="text"
+                type="number"
                 id="balance"
                 name="balance"
-                defaultValue={formating(value)}
-                onBlur={onBlur}
-                pattern="[0-9]"
+                min="00.00"
+                max="10000000.00"
+                step="0.1"
+                required
+                placeholder="00.00"
+                // defaultValue={formating(value)}
+                // onBlur={onBlur}
+                onChange={handleChange}
+                value={balance || savedBalance || ''}
               />
               uah
             </CurrentBalance>
@@ -93,14 +85,18 @@ export function BalanceFrom() {
               <AbsoluteContainer>
                 <BalanceForm>
                   <PortalContainer>
-                    <Notification money={value} />
+                    <Notification money={balance} />
                   </PortalContainer>
                 </BalanceForm>
               </AbsoluteContainer>,
               document.querySelector('#balance')
             )}
           </CurrentBalanceContainer>
-          <StyledBtn type="button" onClick={onClick}>
+          <StyledBtn
+            type="button"
+            disabled={!balance || balance === '0'}
+            onClick={onClick}
+          >
             Confirm
           </StyledBtn>
         </BaseContainer>

@@ -1,5 +1,24 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+// import { NumericFormat } from 'react-number-format';
+
+// export const BalanceInput = styled(NumericFormat)`
+//   width: 74px;
+
+//   font-weight: 700;
+//   font-size: 12px;
+//   line-height: 1.67px;
+//   letter-spacing: 0.02em;
+//   text-align: right;
+
+//   color: black;
+
+//   background-color: transparent;
+
+//   border: none;
+
+//   outline: none;
+// `;
 
 export const BalanceContainer = styled.div`
   height: auto;

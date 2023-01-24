@@ -6,6 +6,7 @@ import {
   Outlet,
   TransactWrapper,
   SummaryWrapper,
+  ContentWrapper,
 } from './styled';
 import TransactionsList from 'components/TransactionsList/TransactionsList';
 import InputTransactionForm from 'components/InputTransactionForm/InputTransactionForm';
@@ -40,22 +41,26 @@ export const Tabs = () => {
         {activeTab === 'tab1' ? (
           <>
             <InputTransactionForm type="expense" />
-            <TransactWrapper>
-              <TransactionsList type="expense" />
+            <ContentWrapper>
+              <TransactWrapper>
+                <TransactionsList type="expense" />
+              </TransactWrapper>
               <SummaryWrapper>
                 <Summary />
               </SummaryWrapper>
-            </TransactWrapper>
+            </ContentWrapper>
           </>
         ) : (
           <>
             <InputTransactionForm type="income" />
-            <TransactWrapper>
-              <TransactionsList type="income" />
+            <ContentWrapper>
+              <TransactWrapper>
+                <TransactionsList type="income" />
+              </TransactWrapper>
               <SummaryWrapper>
                 <Summary />
               </SummaryWrapper>
-            </TransactWrapper>
+            </ContentWrapper>
           </>
         )}
       </Outlet>

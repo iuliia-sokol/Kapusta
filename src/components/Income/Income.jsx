@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import svg from '../../images/icons_sprite.svg';
 import styledComponents from 'components/Expenses/styleExpenses';
-import { formating } from 'components/Balance/BalanceForm';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
+import { formattingSum } from 'utils/formattingSum';
 
 const {
   ListOfBalanceChanges,
@@ -83,7 +83,7 @@ const Income = ({ onClick }) => {
           <ListOfBalanceChanges>
             {salary && (
               <ItemOfBalanceChanges onClick={onItemClick} id="З/П">
-                <p>{formating(salary.total)}</p>
+                <p>{formattingSum(salary.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -95,7 +95,7 @@ const Income = ({ onClick }) => {
             )}
             {income && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Доп. доход">
-                <p>{formating(income.total)}</p>
+                <p>{formattingSum(income.total)}</p>
                 <BoxForSvg>
                   <SvgBoxStyle>
                     <use href={`${svg}#income`} />

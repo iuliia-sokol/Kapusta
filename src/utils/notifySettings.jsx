@@ -1,8 +1,8 @@
 export const notifySettings = {
-  width: '380px',
+  width: '320px',
   position: 'right-top',
   distance: '10px',
   opacity: 1,
-  fontSize: '20px',
+  fontSize: '14px',
   borderRadius: '12px',
 };

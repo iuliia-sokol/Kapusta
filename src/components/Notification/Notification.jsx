@@ -8,9 +8,10 @@ import {
   NotificationSubText,
 } from './Notification.styled';
 
-export function Notification({ money = false, }) {
+export function Notification({ money = false }) {
   const [show, setShow] = useState(false);
   const [opacity, setOpacity] = useState(0);
+
   useEffect(() => {
     if (!money) {
       setTimeout(() => {
@@ -31,7 +32,9 @@ export function Notification({ money = false, }) {
             <NotificationText>
               Hello! To get started, enter the current balance of your account!
             </NotificationText>
-            <NotificationSubText>You can't spend money until you have it :)</NotificationSubText>
+            <NotificationSubText>
+              You can't spend money until you have it :)
+            </NotificationSubText>
           </StyledWindow>
         </NotificationContainer>
       )}

@@ -1,12 +1,7 @@
 import { Balance } from 'components/Balance/Balance';
 import { Tabs } from 'components/WalletTabs/WalletTabs';
-import Summary from 'components/Summary/Summary';
-import {
-  Container,
-  SummaryWrapper,
-  AnimationWrapper,
-  AnimatedCabbages,
-} from './Wallet.styled';
+
+import { Container, AnimationWrapper, AnimatedCabbages } from './Wallet.styled';
 import {
   ImageWrapper,
   Particles,
@@ -19,9 +14,6 @@ const WalletPage = () => {
       <Balance />
       <Tabs />
 
-      <SummaryWrapper>
-        <Summary />
-      </SummaryWrapper>
       <AnimatedCabbages />
       <AnimationWrapper>
         <Particles>

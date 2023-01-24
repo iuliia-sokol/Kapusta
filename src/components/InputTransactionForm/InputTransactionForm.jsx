@@ -174,10 +174,14 @@ export default function InputTransactionForm({ type }) {
             />
             <InputAmountWrapper>
               <InputAmount
-                type="text"
+                type="number"
+                placeholder="0,00"
                 value={formData.sum}
                 name="product"
-                placeholder="0.00"
+                min="00.00"
+                max="10000000.00"
+                step="0.1"
+                required
                 onChange={e => validateSumInput(e.target.value)}
               />
               <svg

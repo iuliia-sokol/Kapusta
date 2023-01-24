@@ -13,10 +13,10 @@ import {
   MounthBox,
   MounthContainer,
 } from './Balance.Report.styled';
-import { BalanceReportFrom } from './BalanceReportForm';
 import { currentPeriod } from 'redux/statistics/statsSlice';
 import { getStatistics } from 'redux/statistics/statsOperations';
 import { useSelector, useDispatch } from 'react-redux';
+import { BalanceFrom } from 'components/Balance/BalanceForm';
 
 export function BalanceReport() {
   const [month, setMonthes] = useState(1);
@@ -77,7 +77,7 @@ export function BalanceReport() {
           <MainPageText>Main Page</MainPageText>
         </StyledLink>
 
-        <BalanceReportFrom />
+        <BalanceFrom />
 
         <MounthBox>
           <Period>Current period</Period>

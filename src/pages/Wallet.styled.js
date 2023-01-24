@@ -11,18 +11,18 @@ export const AnimatedCabbages = styled(ImageWrapperBottom)`
   }
 `;
 
-export const SummaryWrapper = styled.div`
-  display: none;
+// export const SummaryWrapper = styled.div`
+//   display: none;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    position: absolute;
-    bottom: 60px;
-  }
-  @media screen and (min-width: 1280px) {
-    display: none;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     display: flex;
+//     position: absolute;
+//     bottom: 60px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     display: none;
+//   }
+// `;
 
 export const Container = styled.main`
   position: relative;
@@ -36,7 +36,7 @@ export const Container = styled.main`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    padding: 49px 32px 370px 32px;
+    padding: 49px 32px 270px 32px;
   }
 
   @media screen and (min-width: 1280px) {

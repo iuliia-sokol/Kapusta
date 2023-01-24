@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import svg from '../../images/icons_sprite.svg';
 import styledComponents from './styleExpenses';
-import { formating } from 'components/Balance/BalanceForm';
+
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
+import { formattingSum } from 'utils/formattingSum';
 
 const {
   ListOfBalanceChanges,
@@ -62,12 +63,12 @@ const Expenses = ({ onClick }) => {
         Развлечения: entertainment,
         Здоровье: health,
         Транспорт: transport,
-       // eslint-disable-next-line no-useless-computed-key
+        // eslint-disable-next-line no-useless-computed-key
         ['Всё для дома']: housing,
         Техника: technique,
         // eslint-disable-next-line no-useless-computed-key
         ['Коммуналка и связь']: communal,
-       // eslint-disable-next-line no-useless-computed-key
+        // eslint-disable-next-line no-useless-computed-key
         ['Спорт и хобби']: hobbies,
         Образование: education,
         Прочее: other,
@@ -97,7 +98,7 @@ const Expenses = ({ onClick }) => {
           <ListOfBalanceChanges>
             {products && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Продукты">
-                <p>{formating(products.total)}</p>
+                <p>{formattingSum(products.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -110,7 +111,7 @@ const Expenses = ({ onClick }) => {
             )}
             {alcohol && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Алкоголь">
-                <p>{formating(alcohol.total)}</p>
+                <p>{formattingSum(alcohol.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -122,7 +123,7 @@ const Expenses = ({ onClick }) => {
             )}
             {entertainment && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Развлечения">
-                <p>{formating(entertainment.total)}</p>
+                <p>{formattingSum(entertainment.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -134,7 +135,7 @@ const Expenses = ({ onClick }) => {
             )}
             {health && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Здоровье">
-                <p>{formating(health.total)}</p>
+                <p>{formattingSum(health.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -146,7 +147,7 @@ const Expenses = ({ onClick }) => {
             )}
             {transport && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Транспорт">
-                <p>{formating(transport.total)}</p>
+                <p>{formattingSum(transport.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -158,7 +159,7 @@ const Expenses = ({ onClick }) => {
             )}
             {housing && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Всё для дома">
-                <p>{formating(housing.total)}</p>
+                <p>{formattingSum(housing.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -170,7 +171,7 @@ const Expenses = ({ onClick }) => {
             )}
             {technique && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Техника">
-                <p>{formating(technique.total)}</p>
+                <p>{formattingSum(technique.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -185,7 +186,7 @@ const Expenses = ({ onClick }) => {
                 onClick={onItemClick}
                 id="Коммуналка и связь"
               >
-                <p>{formating(communal.total)}</p>
+                <p>{formattingSum(communal.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -197,7 +198,7 @@ const Expenses = ({ onClick }) => {
             )}
             {hobbies && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Спорт и хобби">
-                <p>{formating(hobbies.total)}</p>
+                <p>{formattingSum(hobbies.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -209,7 +210,7 @@ const Expenses = ({ onClick }) => {
             )}
             {education && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Образование">
-                <p>{formating(education.total)}</p>
+                <p>{formattingSum(education.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -221,7 +222,7 @@ const Expenses = ({ onClick }) => {
             )}
             {other && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Прочее">
-                <p>{formating(other.total)}</p>
+                <p>{formattingSum(other.total)}</p>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>

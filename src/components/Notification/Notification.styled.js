@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const NotificationContainer = styled.div`
   position: absolute;
-  top: -5px;
-  left: 23%;
+  z-index: 1000;
 `;
 
 export const Triangle = styled.div`

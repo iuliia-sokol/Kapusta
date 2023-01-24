@@ -3,7 +3,7 @@ import Expenses from 'components/Expenses/Expenses';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStatistics } from 'redux/statistics/statsOperations';
-import { BalanceReport } from 'components/BalanceReport/BalanceReport';
+import { BalanceReport } from 'components/StatsBalanceReport/BalanceReport';
 import TotalStatistics from 'components/TotalStatistics/TotalStatistics';
 import styledComponents from 'components/Expenses/styleExpenses';
 import { currentPeriod } from 'redux/statistics/statsSlice';
@@ -18,24 +18,24 @@ const Statistics = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    
-    if (!statePeriod) {
-    const objDate = new Date();
-    const year = objDate.getFullYear();
-    const month = objDate.getMonth() + 1
-      
-    const period = `${year}-${month > 10 ? month : `0${month}`}`
-    dispatch(currentPeriod(JSON.stringify(objDate)))
-    dispatch(getStatistics({ period }))
-    }
+  useEffect(
+    () => {
+      if (!statePeriod) {
+        const objDate = new Date();
+        const year = objDate.getFullYear();
+        const month = objDate.getMonth() + 1;
 
-    return () => {
-      dispatch(currentPeriod(''))
-    }
+        const period = `${year}-${month > 10 ? month : `0${month}`}`;
+        dispatch(currentPeriod(JSON.stringify(objDate)));
+        dispatch(getStatistics({ period }));
+      }
 
-  }, // eslint-disable-next-line react-hooks/exhaustive-deps
-    []);
+      return () => {
+        dispatch(currentPeriod(''));
+      };
+    }, // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   const statistics = useSelector(state => state.statistics.statistics);
 

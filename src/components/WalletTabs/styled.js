@@ -69,10 +69,28 @@ export const Outlet = styled.div`
   }
 `;
 
+export const ContentWrapper = styled.div`
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 74px;
+  }
+`;
+
 export const TransactWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   background-color: ${p => p.theme.colors.PrimaryWhite};
   border-radius: 0px 30px 30px 30px;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
@@ -81,17 +99,28 @@ export const TransactWrapper = styled.div`
     background-color: transparent;
     border-radius: 0px;
     box-shadow: none;
+    /* flex-direction: column;
+    gap: 40px; */
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 60px;
+    /* margin-top: 60px; */
+    /* justify-content: center;
+    gap: 74px; */
   }
 `;
 
 export const SummaryWrapper = styled.div`
   display: none;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     display: block;
+    position: absolute;
+    bottom: -162px;
+    left: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: static;
   }
 `;

@@ -4,6 +4,8 @@ import { Btn } from 'components/Buttons/Btn';
 import sprite from '../../images/icons_sprite.svg';
 
 export const Popup = ({ popup, setPopup }) => {
+  // console.log(popup);
+
   const handleLogout = () => {
     popup.action();
     closePopup();

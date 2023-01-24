@@ -27,20 +27,28 @@ export const addTransactionOp = createAsyncThunk(
 
 export const fetchUserBalance = createAsyncThunk(
   'auth/balance',
-  async ({ value }, { rejectWithValue }) => {
+  async ({ balance }, { rejectWithValue }) => {
     try {
-      if (value >= 1) {
-        const { data } = await instance.patch('/user/balance', {
-          newBalance: value,
-        });
-        return data;
+      // console.log(typeof balance);
+      if (balance < 1) {
+        Notiflix.Notify.warning(
+          `Ballance must be greater than or equal to 1`,
+          notifySettings
+        );
+        return;
       }
+      const { data } = await instance.patch('/user/balance', {
+        newBalance: +balance,
+      });
+      console.log(data);
+      return data;
     } catch ({ response }) {
       const { status, data } = response;
       const error = {
         status,
         message: data.message,
       };
+      Notiflix.Notify.warning(`${error.message}`, notifySettings);
       return rejectWithValue(error);
     }
   }

@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https:///iuliia-sokol.github.io/kapusta/",
   "dependencies": {
-    "@emotion/styled": "^11.10.5",
     "@react-hook/media-query": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.1",
     "@scaleway/use-media": "^2.0.0",
@@ -18,6 +17,7 @@
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.7.1",
+    "react-number-format": "^5.1.3",
     "react-redux": "^8.0.5",
     "react-router": "^6.6.2",
     "react-router-dom": "^6.6.2",
