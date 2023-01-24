@@ -88,7 +88,7 @@ function TransactionsList({ type }) {
                   <AmountWrapper>
                     <AmountStyle type={type}>
                       {type === 'expense' && '-'}{' '}
-                      {formattingSum(operation.amount)} UAH.
+                      {formattingSum(operation.amount)} UAH
                     </AmountStyle>
                     <BtnForRemove
                       type="button"

@@ -22,7 +22,7 @@ function Summary() {
             return (
               <SummaryItems key={wordTranslator(operation[0])}>
                 <SummaryText>{wordTranslator(operation[0])}</SummaryText>
-                <SummaryText>{formattingSum(operation[1])}</SummaryText>
+                <SummaryText>{formattingSum(operation[1])} UAH</SummaryText>
               </SummaryItems>
             );
           })}
