@@ -1,5 +1,5 @@
 export const selectStyles = {
-  control: () => ({
+  control: (_, { isFocused, isSelected }) => ({
     zIndex: '1000',
     boxSizing: 'border-box',
     width: '168px',
@@ -14,20 +14,21 @@ export const selectStyles = {
     letterSpacing: '0.02em',
     display: 'flex',
     alignItems: 'center',
-    borderLeft: '2px solid #F5F6FB',
-    borderRight: '2px solid #F5F6FB',
-    borderTop: 'none',
-    borderBottom: 'none',
     paddingLeft: '20px',
+    borderRadius: '0 0 0 16px',
+    border: isFocused ? '1px solid #FF751D' : 'none',
+    '@media screen and (min-width: 768px)': {
+      borderRadius: '0',
+    },
   }),
   input: styles => ({
     ...styles,
     color: '#C7CCDC',
   }),
   placeholder: styles => ({
-        ...styles,
-        color: '#C7CCDC',
-    }),
+    ...styles,
+    color: '#C7CCDC',
+  }),
   menu: () => ({
     boxSizing: 'border-box',
     position: 'absolute',

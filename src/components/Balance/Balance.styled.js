@@ -199,12 +199,23 @@ export const StyledLink = styled(NavLink)`
   letter-spacing: 0.04em;
   text-decoration: none;
   color: rgba(82, 85, 95, 0.7);
-  transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  & svg {
+    fill: ${p => p.theme.colors.TextGray};
+    transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
   cursor: pointer;
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.PrimaryOrange};
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.PrimaryOrange};
+    fill: ${p => p.theme.colors.PrimaryOrange};
   }
 
   @media screen and (min-width: 1280px) {

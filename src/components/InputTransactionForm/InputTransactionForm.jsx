@@ -29,6 +29,7 @@ import {
   InputProduct,
   MainContainer,
   SelectAmountWrapper,
+  SelectWrapper,
 } from './styles/InputTransactionForm.styled';
 import { ShowFormButton } from 'components/ShowFormBtn/ShowFormBtn';
 
@@ -159,19 +160,21 @@ export default function InputTransactionForm({ type }) {
             }
           />
           <SelectAmountWrapper>
-            <Select
-              key={type}
-              defaultOptions
-              placeholder={
-                TRANSACTION_FORM_DATA[type].selectCategoryPlaceholder
-              }
-              styles={selectStyles}
-              options={transactionsOptions[type] ?? []}
-              isLoading={isLoadingOpts}
-              closeMenuOnSelect={true}
-              onChange={selectedOption => setCategory(selectedOption)}
-              value={category}
-            />
+            <SelectWrapper>
+              <Select
+                key={type}
+                defaultOptions
+                placeholder={
+                  TRANSACTION_FORM_DATA[type].selectCategoryPlaceholder
+                }
+                styles={selectStyles}
+                options={transactionsOptions[type] ?? []}
+                isLoading={isLoadingOpts}
+                closeMenuOnSelect={true}
+                onChange={selectedOption => setCategory(selectedOption)}
+                value={category}
+              />
+            </SelectWrapper>
             <InputAmountWrapper>
               <InputAmount
                 type="number"

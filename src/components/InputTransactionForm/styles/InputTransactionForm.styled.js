@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 100%;
     justify-content: center;
-    background-color: white;
+    background-color: ${p => p.theme.colors.PrimaryWhite};
     border-bottom-left-radius: 0;
     margin-bottom: 48px;
   }
@@ -20,8 +20,6 @@ export const MainContainer = styled.div`
     min-width: 1034px;
     height: 44px;
     margin-bottom: 0;
-    background-color: #ffffff;
-    border-bottom-left-radius: 0;
   }
 `;
 
@@ -52,17 +50,18 @@ export const InputForm = styled.form`
 export const InputGroupWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     height: 44px;
     width: 478px;
-    border: 2px solid #f6f7fc;
+    border: 2px solid ${p => p.theme.colors.BtnBorderGray};
     border-radius: 16px 16px 16px 0;
   }
 
@@ -71,34 +70,42 @@ export const InputGroupWrapper = styled.div`
     flex-wrap: nowrap;
     width: 578px;
     height: 44px;
-    border: 2px solid #f6f7fc;
     border-radius: 16px 16px 16px 0;
   }
 `;
 
 export const Input = styled.input`
   box-sizing: border-box;
-
   height: 44px;
-
-  background-color: #f5f6fb;
-  border: 2px solid #ffffff;
-
+  background-color: ${p => p.theme.colors.PrimaryGray};
+  border: 2px solid ${p => p.theme.colors.PrimaryWhite};
   font-family: inherit;
   font-size: 12px;
   outline: none;
+
+  /* &:focus {
+    border: 1px solid ${p => p.theme.colors.PrimaryOrange};
+    background-color: ${p => p.theme.colors.PrimaryWhite};
+  } */
 
   ::placeholder {
     font-family: inherit;
     font-size: 12px;
     font-weight: 400;
-    color: #c7ccdc;
+    color: ${p => p.theme.colors.PaleGray};
   }
 
   @media screen and (min-width: 768px) {
     height: 40px;
     border: none;
-    background-color: #ffffff;
+    background-color: ${p => p.theme.colors.PrimaryWhite};
+  }
+`;
+
+export const SelectWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    border-left: 2px solid ${p => p.theme.colors.PrimaryGray};
+    border-right: 2px solid ${p => p.theme.colors.PrimaryGray};
   }
 `;
 
@@ -109,6 +116,12 @@ export const InputProduct = styled(Input)`
   padding-left: 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  color: ${p => p.theme.colors.PaleGray};
+
+  &:focus {
+    border: 1px solid ${p => p.theme.colors.PrimaryOrange};
+    background-color: ${p => p.theme.colors.PrimaryWhite};
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1279.5px) {
     width: 200px;
@@ -118,17 +131,16 @@ export const InputProduct = styled(Input)`
   @media screen and (min-width: 1280px) {
     width: 290px;
     border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    /* border-top-right-radius: 16px; */
   }
 `;
 
 export const SelectAmountWrapper = styled.div`
   display: flex;
   padding: 0 20px;
-  width: 100%;
+  width: 280px;
   justify-content: center;
-  margin: 12px 0;
-  gap: 8px;
+  margin-bottom: 12px;
 
   @media screen and (min-width: 768px) {
     width: fit-content;
@@ -137,6 +149,7 @@ export const SelectAmountWrapper = styled.div`
     padding: 0;
     margin: 0;
     gap: 0;
+    margin: 12px 0;
   }
 `;
 export const InputAmountWrapper = styled.div`
@@ -148,26 +161,23 @@ export const InputAmountWrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
-
-  @media screen and (min-width: 1280px) {
-    /* width: 183px; */
-  }
 `;
 
 export const InputAmount = styled(Input)`
   width: 100%;
   text-align: right;
   padding-right: 42px;
-  border-radius: 16px;
+  background-color: ${p => p.theme.colors.PrimaryWhite};
+  border-radius: 0 0 16px 0;
+
+  &:focus {
+    border: 1px solid ${p => p.theme.colors.PrimaryOrange};
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1279.5px) {
     flex-shrink: 0;
     width: 110px;
     border-radius: 0 16px 16px 0;
-    //   overflow: hidden;
-  }
-  @media screen and (min-width: 1280px) {
-    /* width: 120px; */
   }
 `;
 

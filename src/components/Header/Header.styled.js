@@ -6,11 +6,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   z-index: 100;
   height: 56px;
-  padding: 0 16px;
-
-  @media screen and (min-width: 320px) {
-    padding: 0 20px;
-  }
+  padding: 0 20px;
 
   @media screen and (min-width: 768px) {
     padding: 0 32px;
@@ -43,7 +39,6 @@ export const LogoSvg = styled.svg`
   position: absolute;
   top: 11px;
   left: 20px;
-
   height: 16.71px;
   width: 70px;
 `;

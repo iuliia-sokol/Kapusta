@@ -27,13 +27,13 @@ export const Link = styled(NavLink)`
 
   &:hover,
   &:focus {
-    color: white;
+    color: ${p => p.theme.colors.PrimaryWhite};
     background-color: ${p => p.theme.colors.PrimaryOrange};
     filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
   }
   &:active {
     background-color: ${p => p.theme.colors.PrimaryOrange};
-    color: white;
+    color: ${p => p.theme.colors.PrimaryWhite};
     filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
   }
 

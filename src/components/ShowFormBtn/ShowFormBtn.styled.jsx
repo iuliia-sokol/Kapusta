@@ -14,6 +14,11 @@ export const ShowFormBtn = styled.button`
   border-top-right-radius: 16px;
   color: ${p => p.theme.colors.PrimaryWhite};
 
+  &:active {
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+  }
+
   @media screen and (min-width: 768px) {
     display: none;
   }
