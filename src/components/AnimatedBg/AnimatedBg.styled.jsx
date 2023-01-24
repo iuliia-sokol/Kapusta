@@ -21,7 +21,7 @@ export const ImageWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 286px;
+  height: 296px;
   background-color: ${p => p.theme.colors.PrimaryGray};
   z-index: -1000;
   border-bottom-left-radius: 125px;

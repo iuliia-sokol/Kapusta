@@ -2,29 +2,21 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const BalanceContainer = styled.div`
-  height: 44px;
-
-  position: relative;
-
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  padding-top: 40px;
-  margin: 0 auto;
-
+  /* margin: 0 auto; */
   background-color: transparent;
 
-  @media screen and (max-width: 768px) {
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: 768px) {
     justify-content: space-between;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: auto;
-
-    flex-direction: column-reverse;
-
-    padding-top: 22px;
+    height: 44px;
+    flex-direction: row;
   }
 `;
 
@@ -35,10 +27,7 @@ export const BalanceForm = styled.div`
 
   @media screen and (max-width: 480px) {
     flex-direction: column;
-
     order: 2;
-
-    margin-top: 32px;
   }
 `;
 
@@ -184,7 +173,6 @@ export const StyledLink = styled(NavLink)`
 
   @media screen and (max-width: 480px) {
     align-self: flex-start;
-
     margin-bottom: 22px;
   }
 `;

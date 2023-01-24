@@ -5,28 +5,21 @@ export const MainContainer = styled.div`
   min-width: 280px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #f5f6fb;
-  border-bottom-left-radius: 64px;
+  background-color: transparent;
 
-  /* position: relative;
-  z-index: 1; */
-
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
-    width: 624px;
-
-    margin-bottom: 48px;
-
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    justify-content: center;
     background-color: white;
     border-bottom-left-radius: 0;
+    margin-bottom: 48px;
   }
 
   @media screen and (min-width: 1280px) {
     flex-wrap: nowrap;
     min-width: 1034px;
     height: 44px;
-
-    /* margin-bottom: 60px; */
-
+    margin-bottom: 0;
     background-color: #ffffff;
     border-bottom-left-radius: 0;
   }
@@ -40,27 +33,19 @@ export const InputForm = styled.form`
   flex-wrap: wrap;
   min-width: 280px;
 
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
-    width: 624px;
-    min-width: 624px;
-    height: 44px;
-    margin-top: 24px;
-    margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
     row-gap: 34px;
     column-gap: 34px;
   }
 
   @media screen and (min-width: 1280px) {
+    height: 44px;
     display: inline-flex;
     flex-wrap: nowrap;
     column-gap: 32px;
-    margin-top: 34px;
-    margin-bottom: 32px;
 
     min-width: 1034px;
-    width: 1034px;
-
-    margin-bottom: 0;
   }
 `;
 
@@ -72,13 +57,11 @@ export const InputGroupWrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: nowrap;
-
     height: 44px;
     width: 478px;
-
     border: 2px solid #f6f7fc;
     border-radius: 16px 16px 16px 0;
   }

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const BalanceContainer = styled.div`
   height: auto;
   flex-direction: column-reverse;
-  padding-top: 47px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -16,11 +15,11 @@ export const BalanceContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     height: 44px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     gap: 0;
     margin-bottom: 60px;
     position: relative;
-    padding-top: 40px;
+
     align-items: center;
   }
 

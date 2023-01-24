@@ -2,18 +2,37 @@ import { Balance } from 'components/Balance/Balance';
 import { Tabs } from 'components/WalletTabs/WalletTabs';
 import { Main, Bg } from 'components/Container/container';
 import Summary from 'components/Summary/Summary';
-import { SummaryWrapper } from './Wallet.styled';
+import { Container, SummaryWrapper, AnimationWrapper } from './Wallet.styled';
+import {
+  ImageWrapper,
+  Particles,
+} from 'components/AnimatedBg/AnimatedBg.styled';
+
 const WalletPage = () => {
   return (
-    <Bg>
-      <Main>
-        <Balance />
-        <Tabs />
-        <SummaryWrapper>
-          <Summary />
-        </SummaryWrapper>
-      </Main>
-    </Bg>
+    <Container>
+      <ImageWrapper />
+      <Balance />
+      <Tabs />
+
+      <SummaryWrapper>
+        <Summary />
+      </SummaryWrapper>
+      <AnimationWrapper>
+        <Particles>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </Particles>
+      </AnimationWrapper>
+    </Container>
   );
 };
 

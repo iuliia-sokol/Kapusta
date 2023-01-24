@@ -7,12 +7,13 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
   gap: 4px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 
   @media screen and (min-width: 768px) {
     position: static;
@@ -54,12 +55,13 @@ export const TabLink = styled(Link)`
 export const Outlet = styled.div`
   padding: 0px;
   margin-top: 0px;
-  background-color: white;
-  border-radius: 0px 30px 30px 30px;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
 
   @media screen and (min-width: 768px) {
     padding: 24px 40px 42px;
+    background-color: white;
+    border-radius: 0px 30px 30px 30px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
   @media screen and (min-width: 1280px) {
     padding: 32px 32px 61px 32px;
@@ -69,6 +71,20 @@ export const Outlet = styled.div`
 export const TransactWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  background-color: ${p => p.theme.colors.PrimaryWhite};
+  border-radius: 0px 30px 30px 30px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+
+  @media screen and (min-width: 768px) {
+    background-color: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+  }
 `;
 
 export const SummaryWrapper = styled.div`

@@ -4,15 +4,16 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  z-index: 100;
   height: 56px;
-
   padding: 0 16px;
-  @media screen and (max-width: 768px) {
-    padding: 0 32px;
-  }
-  @media screen and (max-width: 480px) {
+
+  @media screen and (min-width: 320px) {
     padding: 0 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 32px;
   }
 `;
 
@@ -55,7 +56,7 @@ export const StyledContainer = styled.div`
 export const Img = styled.div`
   height: 32px;
   width: 32px;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${p => p.theme.colors.PrimaryGray};
