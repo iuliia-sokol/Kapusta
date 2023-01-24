@@ -7,7 +7,12 @@ import { BalanceReport } from 'components/StatsBalanceReport/BalanceReport';
 import TotalStatistics from 'components/TotalStatistics/TotalStatistics';
 import styledComponents from 'components/Expenses/styleExpenses';
 import { currentPeriod } from 'redux/statistics/statsSlice';
-import { Bg } from 'components/Container/container';
+import { AnimatedCabbages } from './Wallet.styled';
+import {
+  ImageWrapper,
+  Particles,
+} from 'components/AnimatedBg/AnimatedBg.styled';
+import { ContainerStats, AnimationWrapperStats } from './Stats.styled';
 
 const { BoxForBalance } = styledComponents;
 
@@ -48,7 +53,8 @@ const Statistics = () => {
   };
 
   return (
-    <Bg>
+    <ContainerStats>
+      <ImageWrapper />
       <BoxForBalance>
         <BalanceReport />
       </BoxForBalance>
@@ -61,7 +67,23 @@ const Statistics = () => {
       ) : (
         <Expenses onClick={onClick} />
       )}
-    </Bg>
+
+      <AnimatedCabbages />
+      <AnimationWrapperStats>
+        <Particles>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </Particles>
+      </AnimationWrapperStats>
+    </ContainerStats>
   );
 };
 

@@ -11,19 +11,6 @@ export const AnimatedCabbages = styled(ImageWrapperBottom)`
   }
 `;
 
-// export const SummaryWrapper = styled.div`
-//   display: none;
-
-//   @media screen and (min-width: 768px) {
-//     display: flex;
-//     position: absolute;
-//     bottom: 60px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     display: none;
-//   }
-// `;
-
 export const Container = styled.main`
   position: relative;
   overflow: hidden;
