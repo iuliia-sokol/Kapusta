@@ -44,7 +44,6 @@ export const InputForm = styled.form`
     display: inline-flex;
     flex-wrap: nowrap;
     column-gap: 32px;
-
     min-width: 1034px;
   }
 `;
@@ -69,10 +68,8 @@ export const InputGroupWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-wrap: nowrap;
-
     width: 578px;
     height: 44px;
-
     border: 2px solid #f6f7fc;
     border-radius: 16px 16px 16px 0;
   }
@@ -97,29 +94,18 @@ export const Input = styled.input`
     color: #c7ccdc;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
+  @media screen and (min-width: 768px) {
     height: 40px;
     border: none;
-
-    background-color: #ffffff;
-  }
-
-  @media screen and (min-width: 1280px) {
-    height: 40px;
-    border: none;
-
     background-color: #ffffff;
   }
 `;
 
 export const InputProduct = styled(Input)`
   width: 280px;
-
   font-family: inherit;
   font-size: 12px;
-
   padding-left: 20px;
-
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 
@@ -130,7 +116,6 @@ export const InputProduct = styled(Input)`
   }
   @media screen and (min-width: 1280px) {
     width: 290px;
-
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
   }

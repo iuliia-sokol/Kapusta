@@ -25,6 +25,7 @@ export const BalanceContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     justify-content: flex-end;
+    margin-bottom: 8px;
   }
 `;
 

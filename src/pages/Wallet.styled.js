@@ -1,11 +1,23 @@
+import { ImageWrapperBottom } from 'components/AnimatedCabbagesBottom/AnimatedCabbagesBottom.styled';
 import styled from 'styled-components';
 
+export const AnimatedCabbages = styled(ImageWrapperBottom)`
+  bottom: 60px;
+  right: 5%;
+  left: unset;
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+`;
+
 export const SummaryWrapper = styled.div`
-  margin-top: 40px;
   display: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
+    position: absolute;
+    bottom: 60px;
   }
   @media screen and (min-width: 1280px) {
     display: none;
@@ -15,7 +27,7 @@ export const SummaryWrapper = styled.div`
 export const Container = styled.main`
   position: relative;
   overflow: hidden;
-  padding: 40px 20px 80px 20px;
+  padding: 40px 20px 160px 20px;
   display: flex;
   flex-direction: column;
   /* justify-content: center;
@@ -24,11 +36,11 @@ export const Container = styled.main`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    padding: 49px 32px 60px 32px;
+    padding: 49px 32px 370px 32px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 40px 91px 85px 91px;
+    padding: 40px 91px 270px 91px;
   }
 `;
 
@@ -36,8 +48,9 @@ export const AnimationWrapper = styled.div`
   display: none;
 
   @media screen and (min-width: 1280px) {
+    display: block;
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
     z-index: -1000;
     height: 100vh;

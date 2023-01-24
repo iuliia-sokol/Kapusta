@@ -11,7 +11,7 @@ export const SummaryList = styled.ul`
   flex-direction: column;
   gap: 2px;
   width: 213px;
-  margin-top: 80px;
+
   @media screen and (min-width: 768px) {
   }
 `;
@@ -27,6 +27,7 @@ export const SummaryTitle = styled.li`
   line-height: 14px;
   letter-spacing: 0.02em;
   margin-bottom: 2px;
+
   background-color: ${p => p.theme.colors.PrimaryGray};
 `;
 
@@ -36,6 +37,7 @@ export const SummaryItems = styled.li`
   align-items: center;
   padding: 0 12px;
   height: 38px;
+  border-top: 2px solid #ffffff;
   background-color: ${p => p.theme.colors.PrimaryGray};
   &:last-child {
     border-bottom-right-radius: 30px;

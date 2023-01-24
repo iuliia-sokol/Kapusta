@@ -8,9 +8,7 @@ export const BalanceContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* margin: 0 auto; */
   background-color: transparent;
-
   flex-direction: column-reverse;
 
   @media screen and (min-width: 768px) {
@@ -24,10 +22,10 @@ export const BalanceForm = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  flex-direction: column;
 
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
-    order: 2;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
 `;
 
@@ -36,24 +34,16 @@ export const Text = styled.label`
   font-size: 12px;
   line-height: 1.67;
   letter-spacing: 0.02em;
-
   color: rgba(82, 85, 95, 0.7);
-
   margin-right: 20px;
-
-  @media screen and (max-width: 480px) {
-    margin: 0;
-  }
 `;
 
 export const CurrentBalance = styled.p`
   box-sizing: border-box;
-
+  margin: 0;
   position: relative;
-
   height: 44px;
   width: 125px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,14 +53,14 @@ export const CurrentBalance = styled.p`
   line-height: 1.67px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  text-align: center;
+  /* text-align: center; */
 
   color: black;
   background-color: ${p => p.theme.colors.BgGray};
 
   border: 2px solid #ffffff;
   border-radius: 16px;
-  margin-right: 16px;
+  /* margin-right: 16px; */
 
   @media screen and (max-width: 768px) {
     margin: 0;
@@ -80,7 +70,6 @@ export const CurrentBalance = styled.p`
     width: 183px;
 
     justify-content: center;
-
     padding: 0;
     border-radius: 22px;
     margin: 0;
@@ -90,28 +79,30 @@ export const CurrentBalance = styled.p`
 
 export const Input = styled.input`
   width: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-weight: 700;
   font-size: 12px;
   line-height: 1.67px;
   letter-spacing: 0.02em;
-  text-align: right;
-
+  text-align: center;
   color: black;
-
   background-color: transparent;
-
   border: none;
-
   outline: none;
 
-  @media screen and (max-width: 480px) {
+  /* @media screen and (max-width: 480px) {
     width: 80px;
-  }
+  } */
 `;
 
 export const CurrentBalanceContainer = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledBtn = styled.button`

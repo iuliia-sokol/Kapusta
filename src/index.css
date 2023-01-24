@@ -33,3 +33,7 @@ code {
 #modal.js-action {
   pointer-events: unset;
 }
+
+p {
+  margin: 0;
+}
