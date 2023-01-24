@@ -33,18 +33,14 @@ export const Container = styled.main`
 `;
 
 export const AnimationWrapper = styled.div`
-  height: 50vh;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1000;
-
-  @media screen and (min-width: 768px) {
-    bottom: 20px;
-    height: 100vh;
-  }
+  display: none;
 
   @media screen and (min-width: 1280px) {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: -1000;
+    height: 100vh;
+    width: 100%;
   }
 `;
