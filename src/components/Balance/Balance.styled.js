@@ -98,7 +98,6 @@ export const Text = styled.label`
 export const CurrentBalance = styled.p`
   margin: 0;
   position: relative;
-
   font-weight: 700;
   font-size: 12px;
   line-height: 1.67px;
@@ -115,7 +114,7 @@ export const Input = styled.input`
   line-height: 1.67px;
   letter-spacing: 0.02em;
   text-align: center;
-  color: black;
+  color: ${p => (p.minusBalance ? 'red' : 'black')};
   background-color: transparent;
   border: none;
   outline: none;
@@ -162,18 +161,20 @@ export const StyledBtn = styled.button`
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: rgba(82, 85, 95, 0.7);
-  border: 2px solid #ffffff;
-
+  border: 2px solid ${p => p.theme.colors.PrimaryWhite};
   background-color: ${p => p.theme.colors.BgGray};
-
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.7;
+  }
 
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
     color 400ms cubic-bezier(0.4, 0, 0.2, 1),
     border 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover,
-  &:focus {
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     color: white;
     background-color: ${p => p.theme.colors.PrimaryOrange};
     border: none;

@@ -5,7 +5,7 @@ export const ShowFormBtn = styled.button`
   height: 30px;
   background-color: ${p => p.theme.colors.PrimaryOrange};
   position: absolute;
-  z-index: 2;
+  /* z-index: ; */
   top: -30px;
   left: 50%;
   transform: translateX(-50%);

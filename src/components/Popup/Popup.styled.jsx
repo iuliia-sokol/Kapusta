@@ -46,11 +46,10 @@ export const Modal = styled.div`
   position: absolute;
   top: 50%;
   height: 50%;
-
   transform: translate(-50%, -50%);
   width: 340px;
   height: 154px;
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
   border-radius: 30px;
   padding: 20px;

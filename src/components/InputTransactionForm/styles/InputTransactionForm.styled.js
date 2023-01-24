@@ -116,7 +116,13 @@ export const InputProduct = styled(Input)`
   padding-left: 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  color: ${p => p.theme.colors.PaleGray};
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    color: ${p => p.theme.colors.TextGray};
+  }
 
   &:focus {
     border: 1px solid ${p => p.theme.colors.PrimaryOrange};
@@ -169,6 +175,13 @@ export const InputAmount = styled(Input)`
   padding-right: 42px;
   background-color: ${p => p.theme.colors.PrimaryWhite};
   border-radius: 0 0 16px 0;
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    color: ${p => p.theme.colors.TextGray};
+  }
 
   &:focus {
     border: 1px solid ${p => p.theme.colors.PrimaryOrange};

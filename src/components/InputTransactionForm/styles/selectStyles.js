@@ -5,7 +5,7 @@ export const selectStyles = {
     width: '168px',
     height: '40px',
     backgroundColor: '#ffffff',
-    color: '#C7CCDC',
+    color: '#52555F',
     fontSize: '12px',
     boxShadow: 'none',
     fontWeight: '400',
@@ -44,7 +44,7 @@ export const selectStyles = {
   }),
   singleValue: styles => ({
     ...styles,
-    color: '#C7CCDC',
+    color: '#52555F',
   }),
   indicatorSeparator: () => ({
     // ...styles,
