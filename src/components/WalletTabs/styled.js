@@ -7,6 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   width: 100%;
