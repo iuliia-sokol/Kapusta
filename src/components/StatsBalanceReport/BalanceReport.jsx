@@ -12,6 +12,7 @@ import {
   MainPageText,
   MounthBox,
   MounthContainer,
+  DataWrapper,
 } from './Balance.Report.styled';
 import { currentPeriod } from 'redux/statistics/statsSlice';
 import { getStatistics } from 'redux/statistics/statsOperations';
@@ -76,25 +77,26 @@ export function BalanceReport() {
           </MainPageSvg>
           <MainPageText>Main Page</MainPageText>
         </StyledLink>
+        <DataWrapper>
+          <BalanceFrom btnDisplay={false} />
 
-        <BalanceFrom />
-
-        <MounthBox>
-          <Period>Current period</Period>
-          <MounthContainer>
-            <PeriodBtn type="button" onClick={prevMonth}>
-              <PeriodArrow>
-                <use href={`${svg}#arrow_left`} />
-              </PeriodArrow>
-            </PeriodBtn>
-            <PeriodData>{getDate(month)}</PeriodData>
-            <PeriodBtn type="button" onClick={nextMonth}>
-              <PeriodArrow>
-                <use href={`${svg}#arrow_right`} />
-              </PeriodArrow>
-            </PeriodBtn>
-          </MounthContainer>
-        </MounthBox>
+          <MounthBox>
+            <Period>Current period</Period>
+            <MounthContainer>
+              <PeriodBtn type="button" onClick={prevMonth}>
+                <PeriodArrow>
+                  <use href={`${svg}#arrow_left`} />
+                </PeriodArrow>
+              </PeriodBtn>
+              <PeriodData>{getDate(month)}</PeriodData>
+              <PeriodBtn type="button" onClick={nextMonth}>
+                <PeriodArrow>
+                  <use href={`${svg}#arrow_right`} />
+                </PeriodArrow>
+              </PeriodBtn>
+            </MounthContainer>
+          </MounthBox>
+        </DataWrapper>
       </PeriodContainer>
     </BalanceContainer>
   );

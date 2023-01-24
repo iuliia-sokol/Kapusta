@@ -20,7 +20,7 @@ import { notifySettings } from '../../utils/notifySettings';
 import Notiflix from 'notiflix';
 import { formattingSum } from 'utils/formattingSum';
 
-export function BalanceFrom() {
+export function BalanceFrom({ btnDisplay = false }) {
   const dispatch = useDispatch();
 
   const savedBalance = useSelector(selectBalance);
@@ -63,24 +63,22 @@ export function BalanceFrom() {
       <BalanceForm>
         <Text htmlFor="balance">Balance:</Text>
         <BaseContainer>
-          <CurrentBalanceContainer>
-            <CurrentBalance>
-              <Input
-                type="number"
-                id="balance"
-                name="balance"
-                min="00.00"
-                max="10000000.00"
-                step="0.1"
-                required
-                placeholder="00.00"
-                // defaultValue={formating(value)}
-                // onBlur={onBlur}
-                onChange={handleChange}
-                value={balance || savedBalance || ''}
-              />
-              uah
-            </CurrentBalance>
+          <CurrentBalanceContainer btnDisplay={btnDisplay}>
+            <Input
+              type="number"
+              id="balance"
+              name="balance"
+              min="00.00"
+              max="10000000.00"
+              step="0.1"
+              required
+              placeholder="00.00"
+              // defaultValue={formating(value)}
+              // onBlur={onBlur}
+              onChange={handleChange}
+              value={balance || savedBalance || ''}
+            />
+            <CurrentBalance>uah</CurrentBalance>
             {createPortal(
               <AbsoluteContainer>
                 <BalanceForm>
@@ -96,6 +94,7 @@ export function BalanceFrom() {
             type="button"
             disabled={!balance || balance === '0'}
             onClick={onClick}
+            btnDisplay={btnDisplay}
           >
             Confirm
           </StyledBtn>

@@ -58,37 +58,52 @@ export const StyledBtn = styled.button`
 export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
-
+  align-self: flex-start;
+  margin-bottom: 22px;
   font-size: 12px;
   line-height: 1.67;
   letter-spacing: 0.04em;
-
   text-decoration: none;
-
   color: rgba(82, 85, 95, 0.7);
-
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
-
   cursor: pointer;
+
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.PrimaryOrange};
   }
 
-  @media screen and (max-width: 480px) {
-    align-self: flex-start;
-    margin-bottom: 22px;
+  @media screen and (min-width: 768px) {
+    align-self: unset;
+    margin-bottom: 0;
+    flex-grow: 2;
+  }
+`;
+
+export const DataWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: unset;
+    flex-grow: 2;
+    justify-content: space-between;
   }
 `;
 
 export const PeriodContainer = styled.div`
+  flex-direction: column;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
 `;
 
@@ -157,9 +172,10 @@ export const PeriodData = styled.p`
 
 export const MainPageText = styled.p`
   margin: 0;
+  display: none;
 
-  @media screen and (max-width: 480px) {
-    display: none;
+  @media screen and (min-width: 768px) {
+    display: inline-flex;
   }
 `;
 export const MounthBox = styled.div`

@@ -58,6 +58,7 @@ const Statistics = () => {
       <BoxForBalance>
         <BalanceReport />
       </BoxForBalance>
+
       <TotalStatistics
         expenses={statistics.data.expenses.expenseTotal}
         income={statistics.data.incomes.incomeTotal}
