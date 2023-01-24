@@ -19,7 +19,7 @@ export const Container = styled.main`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    padding: 117px 171px 155px 171px;
+    padding: 117px 171px 156px 171px;
     /* background-image: url(${BgImage2tabDesk});
     background-position: 0 28px;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ export const Container = styled.main`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 117px 91px 125px 229px;
+    padding: 117px 91px 125px 91px;
   }
 `;
 
@@ -40,8 +40,9 @@ export const ContentWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+    gap: 157px;
   }
 `;
 
@@ -59,7 +60,7 @@ export const LogoWrapper = styled.div`
     line-height: 1.16px;
     text-align: start;
     display: inline-block;
-    margin-left: 20%;
+    /* margin-left: 20%; */
     margin-top: 2%;
 
     font-weight: 700;

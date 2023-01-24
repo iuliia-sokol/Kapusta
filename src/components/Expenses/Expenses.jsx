@@ -15,6 +15,7 @@ const {
   BoxForSvg,
   BoxStats,
   BoxForSchedule,
+  Sum,
 } = styledComponents;
 
 const Expenses = ({ onClick }) => {
@@ -98,7 +99,7 @@ const Expenses = ({ onClick }) => {
           <ListOfBalanceChanges>
             {products && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Продукты">
-                <p>{formattingSum(products.total)}</p>
+                <Sum>{formattingSum(products.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -111,7 +112,7 @@ const Expenses = ({ onClick }) => {
             )}
             {alcohol && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Алкоголь">
-                <p>{formattingSum(alcohol.total)}</p>
+                <Sum>{formattingSum(alcohol.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -123,7 +124,7 @@ const Expenses = ({ onClick }) => {
             )}
             {entertainment && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Развлечения">
-                <p>{formattingSum(entertainment.total)}</p>
+                <Sum>{formattingSum(entertainment.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -135,7 +136,7 @@ const Expenses = ({ onClick }) => {
             )}
             {health && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Здоровье">
-                <p>{formattingSum(health.total)}</p>
+                <Sum>{formattingSum(health.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -147,7 +148,7 @@ const Expenses = ({ onClick }) => {
             )}
             {transport && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Транспорт">
-                <p>{formattingSum(transport.total)}</p>
+                <Sum>{formattingSum(transport.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -159,7 +160,7 @@ const Expenses = ({ onClick }) => {
             )}
             {housing && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Всё для дома">
-                <p>{formattingSum(housing.total)}</p>
+                <Sum>{formattingSum(housing.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -171,7 +172,7 @@ const Expenses = ({ onClick }) => {
             )}
             {technique && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Техника">
-                <p>{formattingSum(technique.total)}</p>
+                <Sum>{formattingSum(technique.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -186,7 +187,7 @@ const Expenses = ({ onClick }) => {
                 onClick={onItemClick}
                 id="Коммуналка и связь"
               >
-                <p>{formattingSum(communal.total)}</p>
+                <Sum>{formattingSum(communal.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -198,7 +199,7 @@ const Expenses = ({ onClick }) => {
             )}
             {hobbies && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Спорт и хобби">
-                <p>{formattingSum(hobbies.total)}</p>
+                <Sum>{formattingSum(hobbies.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -210,7 +211,7 @@ const Expenses = ({ onClick }) => {
             )}
             {education && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Образование">
-                <p>{formattingSum(education.total)}</p>
+                <Sum>{formattingSum(education.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -222,7 +223,7 @@ const Expenses = ({ onClick }) => {
             )}
             {other && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Прочее">
-                <p>{formattingSum(other.total)}</p>
+                <Sum>{formattingSum(other.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -239,7 +240,7 @@ const Expenses = ({ onClick }) => {
       </BoxStats>
       {filtredData() && (
         <BoxForSchedule>
-          <Chart data={filtredData()} />{' '}
+          <Chart data={filtredData()} />
         </BoxForSchedule>
       )}
     </>

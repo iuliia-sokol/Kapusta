@@ -14,6 +14,7 @@ const {
   BoxForSvg,
   BoxStats,
   BoxForSchedule,
+  Sum,
 } = styledComponents;
 
 const Income = ({ onClick }) => {
@@ -83,7 +84,7 @@ const Income = ({ onClick }) => {
           <ListOfBalanceChanges>
             {salary && (
               <ItemOfBalanceChanges onClick={onItemClick} id="З/П">
-                <p>{formattingSum(salary.total)}</p>
+                <Sum>{formattingSum(salary.total)}</Sum>
                 <BoxForSvg>
                   {' '}
                   <SvgBoxStyle>
@@ -95,7 +96,7 @@ const Income = ({ onClick }) => {
             )}
             {income && (
               <ItemOfBalanceChanges onClick={onItemClick} id="Доп. доход">
-                <p>{formattingSum(income.total)}</p>
+                <Sum>{formattingSum(income.total)}</Sum>
                 <BoxForSvg>
                   <SvgBoxStyle>
                     <use href={`${svg}#income`} />

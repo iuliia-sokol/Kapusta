@@ -133,6 +133,14 @@ const styledComponents = {
     border: none;
     background-color: transparent;
   `,
+
+  Sum: styled.p`
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 8px;
+  `,
 };
 
 export default styledComponents;
