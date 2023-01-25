@@ -6,7 +6,7 @@ export const CustomSelectStyled = styled(Select)`
     z-index: 1000;
     box-sizing: border-box;
     width: 168px;
-    height: 40px;
+    height: 44px;
     background-color: ${p => p.theme.colors.PrimaryWhite};
     color: #52555f;
     font-size: 12px;
@@ -32,6 +32,7 @@ export const CustomSelectStyled = styled(Select)`
 
     @media screen and (min-width: 768px) {
       border-radius: 0;
+      height: 40px;
     }
   }
 
