@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import 'react-datepicker/dist/react-datepicker.css';
+import Notiflix from 'notiflix';
+
 import './styles/InputTransactionForm.css';
-import Select from 'react-select';
+import { notifySettings } from '../../utils/notifySettings';
 import sprite from 'images/icons_sprite.svg';
 import { Btn } from 'components/Buttons/Btn';
 import { API_TRANSACTION } from '../../api/apiTransactionCategories';
@@ -11,15 +12,13 @@ import {
   fetchCategoriesOp,
 } from 'redux/transactions/transactionsOps';
 import { DatePickerComponent } from 'components/DatePickerComponent/DatePickerComponent';
-import Notiflix from 'notiflix';
-import { notifySettings } from '../../utils/notifySettings';
 
 import {
   selectisLoadingOptions,
   selectTransactionsOptions,
   selectTransactionsOptionsLength,
 } from 'redux/transactions/transactionsSelectors';
-import { selectStyles } from './styles/selectStyles';
+
 import {
   ButtonsWrapper,
   InputAmount,
@@ -32,6 +31,7 @@ import {
   SelectWrapper,
 } from './styles/InputTransactionForm.styled';
 import { ShowFormButton } from 'components/ShowFormBtn/ShowFormBtn';
+import { CustomSelect } from 'components/Select/CustomSelect';
 
 export default function InputTransactionForm({ type }) {
   const TRANSACTION_FORM_DATA = {
@@ -161,18 +161,15 @@ export default function InputTransactionForm({ type }) {
           />
           <SelectAmountWrapper>
             <SelectWrapper>
-              <Select
+              <CustomSelect
                 key={type}
-                defaultOptions
+                value={category}
+                isLoading={isLoadingOpts}
+                options={transactionsOptions[type] ?? []}
                 placeholder={
                   TRANSACTION_FORM_DATA[type].selectCategoryPlaceholder
                 }
-                styles={selectStyles}
-                options={transactionsOptions[type] ?? []}
-                isLoading={isLoadingOpts}
-                closeMenuOnSelect={true}
                 onChange={selectedOption => setCategory(selectedOption)}
-                value={category}
               />
             </SelectWrapper>
             <InputAmountWrapper>

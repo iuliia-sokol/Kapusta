@@ -1,6 +1,5 @@
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import './DatePickerComponent.css';
 import sprite from 'images/icons_sprite.svg';
 import { Label, Wrapper } from './DatePickerComponent.styled';
 

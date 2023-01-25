@@ -23,6 +23,7 @@ export const theme = {
     balanceBorder: '#FFFFFF',
     transactionList: '#FFFFFF',
     iconsFill: '#52555F',
+    selectOption: '#F5F6FB',
   },
 };
 
@@ -51,6 +52,7 @@ export const darkTheme = {
     balanceBorder: '#C7CCDC',
     transactionList: '#252422',
     iconsFill: '#FFFFFF',
+    selectOption: '#C7CCDC',
   },
 };
 
