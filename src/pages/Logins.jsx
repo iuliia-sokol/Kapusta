@@ -1,19 +1,16 @@
-import { Container, LogoWrapper, ContentWrapper } from './Logins.styled';
+import { Container, ContentWrapper } from './Logins.styled';
 
-import Logo from '../images/title_kapusta.png';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { AnimatedCabbagesBg } from 'components/AnimatedBg/AnimatedBg';
 import { AnimatedBottomCabbages } from 'components/AnimatedCabbagesBottom/AnimatedCabbagesBottom';
+import { AuthPageLogo } from 'components/AuthPageLogo/AuthPageLogo';
 
 const LoginPage = () => {
   return (
     <Container>
       <AnimatedCabbagesBg />
       <ContentWrapper>
-        <LogoWrapper>
-          <img src={Logo} alt="Logo" loading="lazy" />
-          <p>Smart Finance</p>
-        </LogoWrapper>
+        <AuthPageLogo />
 
         <AuthForm
           formTitle="login"

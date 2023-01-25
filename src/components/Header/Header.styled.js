@@ -51,6 +51,7 @@ export const LogoSvg = styled.svg`
   left: 20px;
   height: 16.71px;
   width: 70px;
+  fill: ${props => props.theme.colors.PrimaryBlack};
 `;
 
 export const StyledContainer = styled.div`

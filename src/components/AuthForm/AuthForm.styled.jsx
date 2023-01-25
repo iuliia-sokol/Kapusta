@@ -151,7 +151,8 @@ export const GoogleLoginLink = styled.a`
   background-color: ${p => p.theme.colors.PrimaryGray};
   padding: 10px 16px;
   border-radius: 26px;
-  border: none;
+  /* border: none; */
+  border: 2px solid ${props => props.theme.colors.btnsBorder};
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
 

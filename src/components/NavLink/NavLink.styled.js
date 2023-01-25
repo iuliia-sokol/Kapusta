@@ -22,7 +22,8 @@ export const Link = styled(NavLink)`
   background-color: ${p => p.theme.colors.PrimaryGray};
   padding: 12px 14px;
   border-radius: ${props => (props.status === 'google' ? '26px' : '16px')};
-  border: none;
+  /* border: none; */
+  border: 2px solid ${props => props.theme.colors.btnsBorder};
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
 

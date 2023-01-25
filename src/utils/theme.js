@@ -18,7 +18,7 @@ export const theme = {
     placeholderGrey: '#A6ABB9',
     inputErrorRed: '#eb5757',
     bodyColor: '#FFFFFF',
-    btnsBorder: 'none',
+    btnsBorder: 'transparent',
   },
 };
 
@@ -41,7 +41,7 @@ export const darkTheme = {
     logoGrey: '#C7CCDC',
     placeholderGrey: '#252422',
     inputErrorRed: '#eb5757',
-    bodyColor: '#000000',
-    btnsBorder: '#FFDAC0',
+    bodyColor: '#000000fd',
+    btnsBorder: '#C7CCDC',
   },
 };
