@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
   & .react-datepicker__day--selected {
     background-color: ${p => p.theme.colors.PrimaryOrange};
   }
@@ -17,7 +21,9 @@ export const Wrapper = styled.div`
   & .react-datepicker {
     border: 2px solid ${p => p.theme.colors.PrimaryGray};
     color: ${p => p.theme.colors.PrimaryGray};
-    /* position: absolute; */
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: translateX(-35%);
 
     @media screen and (min-width: 768px) {
