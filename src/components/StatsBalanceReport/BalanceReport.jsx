@@ -78,8 +78,7 @@ export function BalanceReport() {
           <MainPageText>Main Page</MainPageText>
         </StyledLink>
         <DataWrapper>
-          <BalanceFrom btnDisplay={false} />
-
+          <BalanceFrom page="stats" btnDisplay={false} />
           <MounthBox>
             <Period>Current period</Period>
             <MounthContainer>

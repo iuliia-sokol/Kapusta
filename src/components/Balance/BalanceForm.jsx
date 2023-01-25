@@ -20,7 +20,7 @@ import { Popup } from 'components/Popup/Popup';
 import { fetchUserBalance } from 'redux/transactions/transactionsOps';
 import { notifySettings } from '../../utils/notifySettings';
 
-export function BalanceFrom({ btnDisplay = false }) {
+export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   const dispatch = useDispatch();
 
   const savedBalance = Number(useSelector(selectBalance)).toFixed(2);
@@ -76,10 +76,10 @@ export function BalanceFrom({ btnDisplay = false }) {
 
   return (
     <>
-      <BalanceForm>
+      <BalanceForm page={page}>
         <Text htmlFor="balance">Balance:</Text>
         <BaseContainer>
-          <CurrentBalanceContainer btnDisplay={btnDisplay}>
+          <CurrentBalanceContainer page={page} btnDisplay={btnDisplay}>
             <Input
               type="number"
               id="balance"

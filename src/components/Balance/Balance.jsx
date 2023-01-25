@@ -5,7 +5,7 @@ import { BalanceFrom } from './BalanceForm';
 export function Balance() {
   return (
     <BalanceContainer>
-      <BalanceFrom btnDisplay={true} />
+      <BalanceFrom page="wallet" btnDisplay={true} />
       <StyledLink to="/statistics">
         Reports
         <ReportsSvg>

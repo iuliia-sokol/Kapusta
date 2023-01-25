@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { BalanceFrom } from 'components/Balance/BalanceForm';
 
 export const BalanceContainer = styled.div`
   box-sizing: border-box;
@@ -95,6 +96,10 @@ export const DataWrapper = styled.div`
   }
 `;
 
+export const FormWrapper = styled(BalanceFrom)`
+  justify-content: flex-start;
+`;
+
 export const PeriodContainer = styled.div`
   flex-direction: column;
   width: 100%;
@@ -124,9 +129,7 @@ export const Period = styled.p`
   line-height: 1.67;
   text-align: center;
   letter-spacing: 0.04em;
-
-  color: rgba(82, 85, 95, 0.7);
-
+  color: ${p => p.theme.colors.TextGray};
   margin: 0;
 `;
 
@@ -166,13 +169,14 @@ export const PeriodData = styled.p`
   line-height: 1.14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #000000;
+  color: ${p => p.theme.colors.PrimaryBlack};
   user-select: none;
 `;
 
 export const MainPageText = styled.p`
   margin: 0;
   display: none;
+  color: ${p => p.theme.colors.TextGray};
 
   @media screen and (min-width: 768px) {
     display: inline-flex;

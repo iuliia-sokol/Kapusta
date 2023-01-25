@@ -25,6 +25,7 @@ export const theme = {
     iconsFill: '#52555F',
     selectOption: '#F5F6FB',
     datePickerFutureDates: '#C7CCDC',
+    statsIconsBg: '#52555F',
   },
 };
 
@@ -55,6 +56,7 @@ export const darkTheme = {
     iconsFill: '#FFFFFF',
     selectOption: '#C7CCDC',
     datePickerFutureDates: '#1e1603',
+    statsIconsBg: '#FFDAC0',
   },
 };
 

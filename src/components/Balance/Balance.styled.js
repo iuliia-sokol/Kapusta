@@ -72,7 +72,7 @@ export const BalanceForm = styled.div`
 
   @media screen and (min-width: 1280px) {
     align-self: center;
-    justify-content: center;
+    justify-content: ${p => (p.page === 'wallet' ? 'center' : 'flex-start')};
     flex-grow: 2;
   }
 `;
@@ -125,7 +125,8 @@ export const CurrentBalanceContainer = styled.div`
   width: ${p => (p.btnDisplay ? '140px' : '40vw')};
   height: 44px;
   display: flex;
-  justify-content: ${p => (p.btnDisplay ? 'flex-end' : 'center')};
+  justify-content: ${p =>
+    p.btnDisplay || p.page === 'stats' ? 'flex-end' : 'center'};
   align-items: center;
   /* padding: 15px 29px; */
   padding: 12px 16px;

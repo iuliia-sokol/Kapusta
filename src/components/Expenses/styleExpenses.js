@@ -7,6 +7,7 @@ const styledComponents = {
     width: 705px;
     padding: 0;
     margin: 0 auto 30px auto;
+
     @media screen and (max-width: 768px) {
       width: 100%;
     }
@@ -22,7 +23,9 @@ const styledComponents = {
     padding: 20px;
     border-radius: 30px;
     margin: 0 auto 40px auto;
-    background-color: ${theme.colors.PrimaryWhite};
+    background-color: ${p => p.theme.colors.transactionList};
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+
     @media screen and (max-width: 768px) {
       width: 100%;
       padding: 5px 5px;
@@ -43,7 +46,9 @@ const styledComponents = {
     padding: 20px;
     border-radius: 30px;
     margin: 0 auto;
-    background-color: ${theme.colors.PrimaryWhite};
+    background-color: ${p => p.theme.colors.transactionList};
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+
     @media screen and (max-width: 768px) {
       width: 100%;
       padding: 5px 5px;
@@ -65,13 +70,15 @@ const styledComponents = {
     row-gap: 40px;
     column-gap: 30px;
     list-style: none;
-    color: ${theme.colors.TextGray};
+    color: ${p => p.theme.colors.TextGray};
+
     @media screen and (max-width: 768px) {
       column-gap: 0;
       row-gap: 0;
       width: 100%;
     }
   `,
+
   ItemOfBalanceChanges: styled.li`
     max-width: 100px;
     display: flex;
@@ -79,17 +86,20 @@ const styledComponents = {
     justify-content: center;
     align-items: center;
     gap: 10px;
-
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+    color: ${p => p.theme.colors.TextGray};
+
     @media screen and (max-width: 768px) {
       max-width: 110px;
       padding: 20px 10px;
-      border-bottom: 1px solid ${theme.colors.TextGray};
+
+      border-bottom: 1px solid ${p => p.theme.colors.TextGray};
     }
   `,
+
   TitleOfBalanceChanges: styled.h3`
     display: inline-block;
     font-size: 14px;
@@ -97,8 +107,9 @@ const styledComponents = {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     margin: 0 30px 20px 30px;
-    color: ${theme.colors.PrimaryBlack};
+    color: ${p => p.theme.colors.PrimaryBlack};
   `,
+
   SvgBoxStyle: styled.svg`
     display: flex;
     justify-content: center;
@@ -106,22 +117,24 @@ const styledComponents = {
     width: 56px;
     height: 56px;
     margin: -5px;
-    fill: ${theme.colors.SVGColor};
+    fill: ${p => p.theme.colors.iconsFill};
     transition: 350ms ease-in-out;
+
     &:hover,
     &:focus,
     &:active {
-      fill: ${theme.colors.PrimaryOrange};
+      fill: ${p => p.theme.colors.PrimaryOrange};
       transform: scale(1.2);
     }
   `,
 
   BoxForSvg: styled.div`
-    background-color: ${theme.colors.PrimaryGray};
+    background-color: ${p => p.theme.colors.BgGray};
     border-radius: 30px;
     width: 46px;
     height: 46px;
-    margin: -5px -5px 0 0;
+    margin: 5px -5px 10px 0;
+
     &:hover {
       background-color: ${theme.colors.PaleOrange};
       transform: scale(1.2);
