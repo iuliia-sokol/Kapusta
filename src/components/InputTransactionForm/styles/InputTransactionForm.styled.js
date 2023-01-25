@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 100%;
     justify-content: center;
-    background-color: ${p => p.theme.colors.PrimaryWhite};
+    /* background-color: ${p => p.theme.colors.PrimaryWhite}; */
     border-bottom-left-radius: 0;
     margin-bottom: 48px;
   }
@@ -116,6 +116,8 @@ export const InputProduct = styled(Input)`
   padding-left: 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  color: ${p => p.theme.colors.PrimaryBlack};
+  /* color: white; */
 
   &::placeholder {
     font-family: inherit;
@@ -127,17 +129,16 @@ export const InputProduct = styled(Input)`
   &:focus {
     border: 1px solid ${p => p.theme.colors.PrimaryOrange};
     background-color: ${p => p.theme.colors.PrimaryWhite};
+    color: ${p => p.theme.colors.PrimaryBlack};
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
+  @media screen and (min-width: 768px) {
     width: 200px;
     border-top-left-radius: 16px;
-    border-top-right-radius: 0px;
+    border-top-right-radius: 0;
   }
   @media screen and (min-width: 1280px) {
     width: 290px;
-    border-top-left-radius: 16px;
-    /* border-top-right-radius: 16px; */
   }
 `;
 
@@ -158,14 +159,27 @@ export const SelectAmountWrapper = styled.div`
     margin: 12px 0;
   }
 `;
+
 export const InputAmountWrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   display: flex;
+  border-radius: 0 0 16px 0;
+
+  & svg {
+    fill: ${p => p.theme.colors.iconsFill};
+    transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: ${p => p.theme.colors.PrimaryOrange};
+  }
 
   @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
+    border-radius: 0 16px 16px 0;
   }
 `;
 
@@ -175,6 +189,8 @@ export const InputAmount = styled(Input)`
   padding-right: 42px;
   background-color: ${p => p.theme.colors.PrimaryWhite};
   border-radius: 0 0 16px 0;
+  color: ${p => p.theme.colors.PrimaryBlack};
+  z-index: 10;
 
   &::placeholder {
     font-family: inherit;
@@ -184,10 +200,11 @@ export const InputAmount = styled(Input)`
   }
 
   &:focus {
+    color: ${p => p.theme.colors.PrimaryBlack};
     border: 1px solid ${p => p.theme.colors.PrimaryOrange};
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
+  @media screen and (min-width: 768px) {
     flex-shrink: 0;
     width: 110px;
     border-radius: 0 16px 16px 0;

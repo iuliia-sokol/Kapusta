@@ -4,6 +4,7 @@ import { theme } from 'utils/theme';
 const stylesTransactionsList = {
   BoxForList: styled.div`
     width: 100%;
+
     @media screen and (min-width: 768px) {
       /* margin-top: 80px; */
     }
@@ -26,6 +27,7 @@ const stylesTransactionsList = {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     background-color: ${theme.colors.PrimaryGray};
+    background-color: ${p => p.theme.colors.BgGray};
     @media screen and (min-width: 768px) {
       display: flex;
       padding: 0 20px;
@@ -39,6 +41,7 @@ const stylesTransactionsList = {
     margin: 0;
     width: 85px;
     margin-right: 25px;
+    color: ${p => p.theme.colors.PrimaryBlack};
   `,
 
   DescriptionHeaderStyle: styled.p`
@@ -47,6 +50,7 @@ const stylesTransactionsList = {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: ${p => p.theme.colors.PrimaryBlack};
     @media screen and (min-width: 1280px) {
       margin-right: 35px;
     }
@@ -56,6 +60,7 @@ const stylesTransactionsList = {
     margin: 0;
     width: 125px;
     text-align: center;
+    color: ${p => p.theme.colors.PrimaryBlack};
     @media screen and (min-width: 1280px) {
       width: 115px;
       margin-right: 50px;
@@ -67,6 +72,7 @@ const stylesTransactionsList = {
     width: 125px;
     text-align: center;
     margin-right: 20px;
+    color: ${p => p.theme.colors.PrimaryBlack};
     @media screen and (min-width: 1280px) {
       width: 150px;
       margin-right: 50px;
@@ -81,15 +87,17 @@ const stylesTransactionsList = {
     padding: 12px 20px 12px;
     max-height: 168px;
     overflow-y: auto;
+    color: ${p => p.theme.colors.PrimaryBlack};
+    background-color: ${p => p.theme.colors.PrimaryWhite};
     ::-webkit-scrollbar {
       width: 7px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: ${theme.colors.PrimaryOrange};
+      background-color: ${p => p.theme.colors.PrimaryOrange};
       border-radius: 2px;
     }
     ::-webkit-scrollbar-track {
-      background-color: ${theme.colors.PrimaryGray};
+      background-color: ${p => p.theme.colors.BgGray};
     }
     @media screen and (min-width: 768px) {
       padding: 0px;
@@ -201,6 +209,7 @@ const stylesTransactionsList = {
     letter-spacing: 0.04em;
     font-size: 8px;
     line-height: 9px;
+
     @media screen and (min-width: 768px) {
       width: 125px;
       font-size: 12px;
@@ -243,14 +252,28 @@ const stylesTransactionsList = {
   `,
 
   BtnForRemove: styled.button`
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    padding: 0;
+    padding: 2px;
     margin: 0;
-    background-color: ${theme.colors.PrimaryGray};
+    /* background-color: ${theme.colors.PrimaryGray}; */
+    background-color: transparent;
+
+    & svg {
+      fill: ${p => p.theme.colors.iconsFill};
+      transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &:hover svg,
+    &:focus svg {
+      transform: scale(1.2);
+      fill: ${p => p.theme.colors.PrimaryOrange};
+    }
   `,
 
   SvgBoxStyle: styled.svg`
@@ -259,13 +282,6 @@ const stylesTransactionsList = {
     align-items: center;
     width: 18px;
     height: 18px;
-    fill: ${theme.colors.SVGColor};
-    transition: 350ms ease-in-out;
-    &:hover {
-      fill: ${theme.colors.PrimaryOrange};
-      stroke: ${theme.colors.PrimaryOrange};
-      transform: scale(1.2);
-    }
   `,
 };
 

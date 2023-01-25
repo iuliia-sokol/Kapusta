@@ -21,6 +21,8 @@ export const theme = {
     bodyColor: '#FFFFFF',
     btnsBorder: 'transparent',
     balanceBorder: '#FFFFFF',
+    transactionList: '#FFFFFF',
+    iconsFill: '#52555F',
   },
 };
 
@@ -47,5 +49,9 @@ export const darkTheme = {
     bodyColor: '#000000fd',
     btnsBorder: '#C7CCDC',
     balanceBorder: '#C7CCDC',
+    transactionList: '#252422',
+    iconsFill: '#FFFFFF',
   },
 };
+
+// background-color: #403d39;

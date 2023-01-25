@@ -64,7 +64,7 @@ export const Outlet = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 24px 40px 42px;
-    background-color: white;
+    background-color: ${p => p.theme.colors.transactionList};
     border-radius: 0px 30px 30px 30px;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }

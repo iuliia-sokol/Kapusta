@@ -2,10 +2,11 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerComponent.css';
 import sprite from 'images/icons_sprite.svg';
+import { Label } from './DatePickerComponent.styled';
 
 export function DatePickerComponent({ date, maxDate, handler }) {
   return (
-    <label className="label">
+    <Label className="label">
       <svg className="iconCalendar" width="20" height="20">
         <use href={sprite + `#calendar`} />
       </svg>
@@ -17,6 +18,6 @@ export function DatePickerComponent({ date, maxDate, handler }) {
         maxDate={maxDate}
         onChange={handler}
       />
-    </label>
+    </Label>
   );
 }

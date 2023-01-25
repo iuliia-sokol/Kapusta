@@ -40,7 +40,7 @@ export const AnimationWrapper = styled.div`
     bottom: 0;
     left: 0;
     z-index: -100000;
-    height: 40vh;
+    height: 70%;
     width: 100%;
   }
 `;

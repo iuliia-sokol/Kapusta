@@ -228,7 +228,6 @@ export const StyledLink = styled(NavLink)`
 export const ReportsSvg = styled.svg`
   height: 14px;
   width: 14px;
-
   margin-left: 20px;
 `;
 
