@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
+
 import { selectBalance } from 'redux/transactions/transactionsSelectors';
 import {
   Text,
@@ -22,7 +23,7 @@ import { notifySettings } from '../../utils/notifySettings';
 export function BalanceFrom({ btnDisplay = false }) {
   const dispatch = useDispatch();
 
-  const savedBalance = useSelector(selectBalance);
+  const savedBalance = Number(useSelector(selectBalance)).toFixed(2);
 
   const [popup, setPopup] = useState({
     isShow: false,
@@ -39,7 +40,7 @@ export function BalanceFrom({ btnDisplay = false }) {
     if (savedBalance < 0) {
       setMinusBalance(true);
       Notiflix.Notify.info(
-        `Please be avare, that you have negative balance`,
+        `&#9757; Oops, you have negative balance`,
         notifySettings
       );
     }
@@ -49,7 +50,7 @@ export function BalanceFrom({ btnDisplay = false }) {
     if (+value === 0) {
       Notiflix.Notify.warning(`Balance cannot be "0"!`, notifySettings);
     }
-    setBalance(value);
+    setBalance(Number(value).toFixed(2));
   };
 
   const onClick = () => {
@@ -89,7 +90,7 @@ export function BalanceFrom({ btnDisplay = false }) {
               required
               placeholder="00.00"
               onChange={handleChange}
-              value={balance.toFixed(2) || savedBalance || ''}
+              value={balance || savedBalance || ''}
               minusBalance={minusBalance}
             />
             <CurrentBalance>uah</CurrentBalance>

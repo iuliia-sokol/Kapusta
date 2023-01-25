@@ -105,13 +105,13 @@ export const CurrentBalance = styled.p`
 `;
 
 export const Input = styled.input`
-  /* width: 74px; */
+  width: fit-content;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.67px;
   letter-spacing: 0.02em;
-  text-align: center;
-  color: ${p => (p.minusBalance ? 'red' : 'black')};
+  text-align: end;
+  color: ${p => (p.minusBalance ? 'red' : p.theme.colors.PrimaryBlack)};
   background-color: transparent;
   border: none;
   outline: none;
