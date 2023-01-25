@@ -17,41 +17,47 @@ const styledComponents = {
     }
   `,
   BoxStats: styled.div`
+    width: 100%;
+    padding: 5px 5px;
+    margin: 0;
+    background-color: transparent;
     display: block;
-    text-align: center;
-    width: 705px;
-    padding: 20px;
-    border-radius: 30px;
-    margin: 0 auto 40px auto;
-    background-color: ${p => p.theme.colors.transactionList};
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    /* text-align: center; */
+    margin: 0 auto 32px auto;
 
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      padding: 5px 5px;
-      margin: 0;
-      background-color: transparent;
+    @media screen and (min-width: 768px) {
+      width: 705px;
+      padding: 20px;
+      border-radius: 30px;
+      background-color: ${p => p.theme.colors.transactionList};
+      box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     }
 
     @media screen and (min-width: 1280px) {
+      margin: 0 auto 40px auto;
       width: 1035px;
     }
   `,
 
   BoxForSchedule: styled.div`
-    height: 350px;
+    width: 100%;
+    padding: 5px 5px;
     display: block;
-    text-align: center;
-    width: 705px;
-    padding: 20px;
+    /* text-align: center; */
     border-radius: 30px;
     margin: 0 auto;
+
     background-color: ${p => p.theme.colors.transactionList};
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      padding: 5px 5px;
+    @media screen and (min-width: 320px) {
+      width: 320px;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 705px;
+      height: 350px;
+      padding: 20px;
     }
 
     @media screen and (min-width: 1280px) {

@@ -15,8 +15,6 @@ import { getMode } from 'redux/theme/themeSelector';
 export const Chart = ({ data }) => {
   const mode = useSelector(getMode);
 
-  console.log(mode);
-
   const modeColor = mode.mode === 'light' ? '#52555F' : '#FFFFFF';
 
   const customLabelHorizontal = ({ x, y, width, value }) => {
