@@ -86,7 +86,7 @@ export const Input = styled.input`
   background-color: ${p => p.theme.colors.SecondGray};
   border-radius: 30px;
   border: none;
-  color: ${p => p.theme.colors.PrimaryBlack};
+  color: ${p => p.theme.colors.PrimaryGray};
   margin-bottom: 4px;
 
   &::placeholder {
@@ -94,6 +94,7 @@ export const Input = styled.input`
   }
 
   &:focus {
+    /* background-color: ${p => p.theme.colors.SecondGray}; */
     outline: 1px solid ${p => p.theme.colors.PrimaryOrange};
   }
 `;

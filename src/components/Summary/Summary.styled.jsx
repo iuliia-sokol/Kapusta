@@ -27,8 +27,8 @@ export const SummaryTitle = styled.li`
   line-height: 14px;
   letter-spacing: 0.02em;
   margin-bottom: 2px;
-
-  background-color: ${p => p.theme.colors.PrimaryGray};
+  color: ${p => p.theme.colors.PrimaryBlack};
+  background-color: ${p => p.theme.colors.BgGray};
 `;
 
 export const SummaryItems = styled.li`
@@ -38,7 +38,8 @@ export const SummaryItems = styled.li`
   padding: 0 12px;
   height: 38px;
   border-top: 2px solid #ffffff;
-  background-color: ${p => p.theme.colors.PrimaryGray};
+  color: ${p => p.theme.colors.PrimaryBlack};
+  background-color: ${p => p.theme.colors.BgGray};
   &:last-child {
     border-bottom-right-radius: 30px;
   }

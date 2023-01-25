@@ -41,9 +41,7 @@ export const AbsoluteContainer = styled(BalanceContainer)`
   top: 144px;
   height: 0;
   width: 100%;
-
   position: absolute;
-
   margin: 0 auto;
   padding: 0 91px;
 
@@ -54,7 +52,6 @@ export const AbsoluteContainer = styled(BalanceContainer)`
   @media screen and (max-width: 480px) {
     top: 232px;
     left: -22px;
-
     padding: 0 20px;
   }
 `;
@@ -87,8 +84,8 @@ export const Text = styled.label`
   font-size: 12px;
   line-height: 1.67;
   letter-spacing: 0.02em;
-
-  color: rgba(82, 85, 95, 0.7);
+  color: ${p => p.theme.colors.TextGray};
+  /* color: rgba(82, 85, 95, 0.7); */
 
   @media screen and (min-width: 768px) {
     margin-right: 20px;
@@ -104,7 +101,7 @@ export const CurrentBalance = styled.p`
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
-  color: black;
+  color: ${p => p.theme.colors.PrimaryBlack};
 `;
 
 export const Input = styled.input`
@@ -132,7 +129,7 @@ export const CurrentBalanceContainer = styled.div`
   align-items: center;
   /* padding: 15px 29px; */
   padding: 12px 16px;
-  border: 2px solid #ffffff;
+  border: 2px solid ${p => p.theme.colors.balanceBorder};
   border-radius: ${p => (p.btnDisplay ? '22px 0px 0px 22px' : '16px')};
   background-color: ${p => p.theme.colors.BgGray};
 
@@ -155,14 +152,16 @@ export const StyledBtn = styled.button`
   border-radius: 0px 22px 22px 0px;
   padding: 12px;
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 12px;
-  line-height: 1.67;
+  line-height: 1.17;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: rgba(82, 85, 95, 0.7);
-  border: 2px solid ${p => p.theme.colors.PrimaryWhite};
+  /* color: rgba(82, 85, 95, 0.7); */
+  border: 2px solid ${props => props.theme.colors.btnsBorder};
   background-color: ${p => p.theme.colors.BgGray};
+  color: ${p => p.theme.colors.PrimaryBlack};
+
   cursor: pointer;
 
   &:disabled {
@@ -199,7 +198,8 @@ export const StyledLink = styled(NavLink)`
   line-height: 1.67;
   letter-spacing: 0.04em;
   text-decoration: none;
-  color: rgba(82, 85, 95, 0.7);
+  /* color: rgba(82, 85, 95, 0.7); */
+  color: ${p => p.theme.colors.TextGray};
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   & svg {

@@ -6,6 +6,7 @@
   src: local('RobotoRegular'),
     url('./fonts/Roboto-Regular.ttf') format('truetype');
   font-weight: 400;
+  color: #1e1603;
 }
 
 body {

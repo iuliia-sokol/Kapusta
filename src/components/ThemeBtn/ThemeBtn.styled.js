@@ -29,6 +29,7 @@ export const Label = styled.label`
   /* width: 52px; */
   background-color: ${p => p.theme.colors.PrimaryGray};
   border-radius: 50px;
+  border: 2px solid ${props => props.theme.colors.btnsBorder};
   cursor: pointer;
 
   & svg {

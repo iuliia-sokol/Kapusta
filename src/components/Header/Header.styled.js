@@ -68,6 +68,7 @@ export const Img = styled.div`
   background-color: ${p => p.theme.colors.PrimaryGray};
   border-radius: 50%;
   margin-right: 16px;
+  border: 2px solid ${props => props.theme.colors.btnsBorder};
 `;
 
 export const Avatar = styled.p`

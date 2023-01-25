@@ -29,25 +29,29 @@ export const TabLink = styled(Link)`
   height: 53px;
   border-radius: 0;
   box-shadow: none;
-  background-color: #f5f6fb;
+  background-color: ${p => p.theme.colors.TabBg};
+  /* background-color: #f5f6fb; */
   filter: none;
 
   @media screen and (min-width: 768px) {
     width: 138px;
     height: 40px;
-    background-color: #fafbfd;
+    /* background-color: #fafbfd; */
+    background-color: ${p => p.theme.colors.TabBg};
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 
     &:hover,
     &:focus {
       filter: none;
-      background-color: #fafbfd;
+      background-color: ${p => p.theme.colors.TabBg};
+      /* background-color: #fafbfd; */
       color: ${p => p.theme.colors.PrimaryOrange};
     }
     &:active {
       filter: none;
-      background-color: #fafbfd;
+      background-color: ${p => p.theme.colors.TabBg};
+      /* background-color: #fafbfd; */
       color: ${p => p.theme.colors.PrimaryOrange};
     }
   }
