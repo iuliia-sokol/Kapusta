@@ -1,10 +1,21 @@
 import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes, useNavigate, useSearchParams, Navigate } from 'react-router-dom';
-import { Layout } from './Layout';
+import {
+  Route,
+  Routes,
+  useNavigate,
+  useSearchParams,
+  Navigate,
+} from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
 import { fetchCurrentUser, googleAuthUser } from 'redux/auth/authOperations';
 import { getToken } from 'redux/auth/authSelectors';
+import { getMode } from 'redux/theme/themeSelector';
+import { theme, darkTheme } from 'utils/theme';
 
+import { Layout } from './SharedLayout/Layout';
+import { GlobalStyle } from './App.styled';
 
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Logins'));
@@ -19,8 +30,10 @@ const PublicRoute = ({ children, token }) => {
   return !token ? children : <Navigate to="/wallet" />;
 };
 
-
 export const App = () => {
+  const selectedMode = useSelector(getMode);
+  const themeMode = selectedMode.mode === 'light' ? theme : darkTheme;
+
   const dispatch = useDispatch();
   const token = useSelector(getToken);
 
@@ -45,35 +58,49 @@ export const App = () => {
   }, [searchParams, dispatch, navigate]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route
-          index
-          element={<PublicRoute token={token}>
-            <LoginPage/>
-          </PublicRoute>}
-        />
-        <Route
-          path="/register"
-          element={<PublicRoute token={token}>
-            <RegisterPage/>
-          </PublicRoute>}
-        />
-        <Route
-          path="/wallet"
-          element={<PrivateRoute token={token}>
-            <WalletPage/>
-          </PrivateRoute>}
-        />
-        <Route
-          path="/statistics"
-          element={<PrivateRoute token={token}>
-            <StatsPage/>
-          </PrivateRoute>}
-        />
-        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
-
-      </Route>
-    </Routes>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PublicRoute token={token}>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute token={token}>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/wallet"
+            element={
+              <PrivateRoute token={token}>
+                <WalletPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/statistics"
+            element={
+              <PrivateRoute token={token}>
+                <StatsPage />
+              </PrivateRoute>
+            }
+          />
+          {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="api/auth/google-redirect"
+          // element={<GoogleLoader />}
+        /> */}
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };

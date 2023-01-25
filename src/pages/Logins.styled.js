@@ -12,6 +12,8 @@ export const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* z-index: -20000; */
+  /* background-color: ${p => p.theme.colors.bodyColor}; */
   /* background-image: url(${BgImage2mob});
   background-position: 110% 104px;
   background-repeat: no-repeat;

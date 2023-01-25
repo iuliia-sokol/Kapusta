@@ -1,29 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs';
-import useLocalStorage from 'use-local-storage';
+
+import { setTheme } from 'redux/theme/themeSlice';
 import { Ball, Checkbox, Label, Switcher } from './ThemeBtn.styled';
 
 export const ThemeSwitcher = () => {
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [theme, setTheme] = useLocalStorage(
-    'theme',
-    defaultDark ? 'dark' : 'light'
-  );
+  const dispatch = useDispatch();
+  const [mode, setMode] = useState('light');
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    const newTheme = mode === 'light' ? 'dark' : 'light';
+    setMode(newTheme);
   };
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-  }, [theme]);
+    dispatch(setTheme({ mode }));
+  }, [dispatch, mode]);
 
   return (
     <Switcher>
       <Checkbox
         type="checkbox"
-        checked={theme === 'dark'}
+        checked={mode === 'dark'}
         id="theme-switcher"
         onChange={toggleTheme}
       />

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from 'components/Theme';
+import { theme } from 'utils/theme';
 
 const styledComponents = {
   BoxForBalance: styled.div`

@@ -7,6 +7,7 @@ export const StyledHeader = styled.header`
   z-index: 100;
   height: 56px;
   padding: 0 20px;
+  background-color: ${p => p.theme.colors.bodyColor};
 
   @media screen and (min-width: 768px) {
     padding: 0 32px;
@@ -75,8 +76,7 @@ export const Avatar = styled.p`
 `;
 
 export const Name = styled.p`
-  color: #52555f;
-
+  color: ${p => p.theme.colors.TextGray};
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
@@ -103,7 +103,7 @@ export const Exit = styled.button`
   display: flex;
   align-items: center;
 
-  color: #52555f;
+  color: ${p => p.theme.colors.TextGray};
   background-color: transparent;
 
   font-size: 12px;

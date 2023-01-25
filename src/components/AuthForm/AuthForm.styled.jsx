@@ -29,7 +29,6 @@ export const Hint = styled.p`
   height: auto;
   margin: 0;
   padding: 0;
-
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -41,7 +40,6 @@ export const HintLeft = styled.p`
   height: auto;
   margin: 0;
   padding: 0;
-
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -84,13 +82,16 @@ export const Input = styled.input`
   width: 100%;
   font-size: 14px;
   font-family: 'Roboto';
-  placeholder: ${p => p.theme.colors.placeholderGrey};
+
   background-color: ${p => p.theme.colors.SecondGray};
   border-radius: 30px;
   border: none;
-
   color: ${p => p.theme.colors.PrimaryBlack};
   margin-bottom: 4px;
+
+  &::placeholder {
+    color: ${p => p.theme.colors.placeholderGrey};
+  }
 
   &:focus {
     outline: 1px solid ${p => p.theme.colors.PrimaryOrange};

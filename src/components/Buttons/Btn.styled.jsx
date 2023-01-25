@@ -13,9 +13,10 @@ export const BtnElement = styled.button`
   line-height: 1.17;
   letter-spacing: 0.02em;
   text-transform: ${props =>
-  props.status === 'google' ? 'none' : 'uppercase'};
+    props.status === 'google' ? 'none' : 'uppercase'};
   transition: 350ms ease-in-out;
-  color: ${props => (props.status === 'google' ? '#000000' : '#52555f')};
+  color: ${props =>
+    props.status === 'google' ? '#000000' : props.theme.colors.TextGray};
   background-color: ${p => p.theme.colors.PrimaryGray};
   padding: ${props => (props.status === 'google' ? '10px 16px' : '12px 14px')};
   border-radius: ${props => (props.status === 'google' ? '26px' : '16px')};

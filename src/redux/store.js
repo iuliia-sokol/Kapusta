@@ -13,6 +13,8 @@ import {
 } from 'redux-persist';
 import transactionsReducer from './transactions/transactionsSlice';
 import statsReducer from './statistics/statsSlice';
+import languageReducer from './lang/langSlice';
+import themeReducer from './theme/themeSlice';
 
 const persistConfig = {
   key: 'root',
@@ -27,6 +29,8 @@ export const store = configureStore({
     auth: persistedReducer,
     transactions: transactionsReducer,
     statistics: statsReducer,
+    language: languageReducer,
+    theme: themeReducer,
   },
 
   middleware: getDefaultMiddleware =>

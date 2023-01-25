@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import { Suspense } from 'react';
-import { Header } from './Header/Header';
-import { Loader } from '../components/Loader/Loader';
+import { Header } from '../Header/Header';
+import { Loader } from '../Loader/Loader';
 // import { getLogStatus } from 'redux/auth/authSelectors';
 
 export const Layout = () => {

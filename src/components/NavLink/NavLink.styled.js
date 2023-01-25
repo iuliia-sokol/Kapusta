@@ -17,7 +17,8 @@ export const Link = styled(NavLink)`
   letter-spacing: 0.02em;
   text-transform: ${props =>
     props.status === 'google' ? 'none' : 'uppercase'};
-  color: ${props => (props.status === 'google' ? '#000000' : '#52555f')};
+  color: ${props =>
+    props.status === 'google' ? '#000000' : props.theme.colors.TextGray};
   background-color: ${p => p.theme.colors.PrimaryGray};
   padding: 12px 14px;
   border-radius: ${props => (props.status === 'google' ? '26px' : '16px')};
