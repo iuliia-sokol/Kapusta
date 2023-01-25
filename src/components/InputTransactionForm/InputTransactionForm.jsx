@@ -162,7 +162,7 @@ export default function InputTransactionForm({ type }) {
           <SelectAmountWrapper>
             <SelectWrapper>
               <CustomSelect
-                key={type}
+                keyName={type}
                 value={category}
                 isLoading={isLoadingOpts}
                 options={transactionsOptions[type] ?? []}

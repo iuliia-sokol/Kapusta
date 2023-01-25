@@ -27,7 +27,7 @@ export const wordTranslator = word => {
     case 'З/П':
       return 'Salary';
     case 'Доп. доход':
-      return 'Add. Income';
+      return 'Additional income';
     case 'Продукты':
       return 'Products';
     case 'Алкоголь':

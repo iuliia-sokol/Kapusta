@@ -89,7 +89,7 @@ export function BalanceFrom({ btnDisplay = false }) {
               required
               placeholder="00.00"
               onChange={handleChange}
-              value={balance || savedBalance || ''}
+              value={balance.toFixed(2) || savedBalance || ''}
               minusBalance={minusBalance}
             />
             <CurrentBalance>uah</CurrentBalance>

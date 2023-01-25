@@ -23,7 +23,7 @@ export const API_TRANSACTION = {
     apiAddTransactionEndpoint: 'transaction/income',
     apiCategories: {
       'З/П': 'Salary',
-      'Доп. доход': 'AddIncome',
+      'Доп. доход': 'Additional income',
     },
   },
 };

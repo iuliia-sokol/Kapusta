@@ -1,7 +1,7 @@
 import { CustomSelectStyled } from './CustomSelect.styled';
 
 export const CustomSelect = ({
-  key,
+  keyName,
   options,
   placeholder,
   isLoading,
@@ -11,7 +11,7 @@ export const CustomSelect = ({
   return (
     <CustomSelectStyled
       classNamePrefix="react-select"
-      key={key}
+      key={keyName}
       defaultOptions
       placeholder={placeholder}
       // styles={selectStyles}
