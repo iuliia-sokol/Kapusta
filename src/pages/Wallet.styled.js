@@ -39,8 +39,8 @@ export const AnimationWrapper = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: -1000;
-    height: 100vh;
+    z-index: -100000;
+    height: 40vh;
     width: 100%;
   }
 `;

@@ -13,6 +13,15 @@ export const StyledHeader = styled.header`
   }
 `;
 
+export const ControlsWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+  }
+`;
+
 export const LogoContainer = styled.div`
   position: relative;
 

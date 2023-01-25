@@ -11,6 +11,7 @@ import {
   Exit,
   ExitText,
   ExitSvg,
+  ControlsWrapper,
 } from './Header.styled';
 import { useAuth } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +20,7 @@ import { getToken } from 'redux/auth/authSelectors';
 import { logoutUser } from 'redux/auth/authOperations';
 import svg from '../../images/icons_sprite.svg';
 import { Popup } from 'components/Popup/Popup';
+import { ThemeSwitcher } from 'components/ThemeBtn/ThemeBtn';
 
 export function Header() {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ export function Header() {
       title: 'Do you really want to leave?',
       action: () => dispatch(logoutUser()),
     });
-    document.querySelector('#modal').classList.add('js-action')
+    document.querySelector('#modal').classList.add('js-action');
   };
 
   return (
@@ -48,23 +50,26 @@ export function Header() {
             <use href={`${svg}#logo`}></use>
           </LogoSvg>
         </LogoContainer>
-        {token && (
-          <StyledContainer>
-            <Img>
-              <Avatar>
-                {user?.email && user.email.slice(0, 1).toUpperCase()}
-              </Avatar>
-            </Img>
-            <Name>{user.email}</Name>
-            <Line />
-            <Exit type="button" onClick={handleExit}>
-              <ExitText>Exit</ExitText>
-              <ExitSvg>
-                <use href={`${svg}#logout`}></use>
-              </ExitSvg>
-            </Exit>
-          </StyledContainer>
-        )}
+        <ControlsWrapper>
+          <ThemeSwitcher />
+          {token && (
+            <StyledContainer>
+              <Img>
+                <Avatar>
+                  {user?.email && user.email.slice(0, 1).toUpperCase()}
+                </Avatar>
+              </Img>
+              <Name>{user.email}</Name>
+              <Line />
+              <Exit type="button" onClick={handleExit}>
+                <ExitText>Exit</ExitText>
+                <ExitSvg>
+                  <use href={`${svg}#logout`}></use>
+                </ExitSvg>
+              </Exit>
+            </StyledContainer>
+          )}
+        </ControlsWrapper>
       </StyledHeader>
       {popup.isShow && <Popup popup={popup} setPopup={setPopup} />}
     </>
