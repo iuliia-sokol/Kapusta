@@ -24,6 +24,7 @@ export const theme = {
     transactionList: '#FFFFFF',
     iconsFill: '#52555F',
     selectOption: '#F5F6FB',
+    datePickerFutureDates: '#C7CCDC',
   },
 };
 
@@ -53,6 +54,7 @@ export const darkTheme = {
     transactionList: '#252422',
     iconsFill: '#FFFFFF',
     selectOption: '#C7CCDC',
+    datePickerFutureDates: '#1e1603',
   },
 };
 

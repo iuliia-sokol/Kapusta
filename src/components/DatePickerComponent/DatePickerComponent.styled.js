@@ -47,6 +47,19 @@ export const Wrapper = styled.div`
     }
   }
 
+  & .react-datepicker__month-container {
+    color: ${p => p.theme.colors.PrimaryBlack};
+    background-color: ${p => p.theme.colors.PrimaryWhite};
+  }
+
+  & .react-datepicker__day {
+    color: ${p => p.theme.colors.PrimaryBlack};
+
+    &--disabled {
+      color: ${p => p.theme.colors.datePickerFutureDates};
+    }
+  }
+
   & .react-datepicker__current-month {
     font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
