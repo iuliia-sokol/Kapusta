@@ -1,4 +1,5 @@
 import { useMediaQuery } from '@react-hook/media-query';
+import { useSelector } from 'react-redux';
 
 import {
   Bar,
@@ -9,23 +10,39 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { getMode } from 'redux/theme/themeSelector';
 
-const customLabelHorizontal = ({ x, y, width, value }) => {
-  return (
-    <text x={x + width / 2} y={y} textAnchor="middle" dy={-6}>
-      {`${value} UAH`}
-    </text>
-  );
-};
-
-const customLabelVertical = ({ x, y, value }) => {
-  return (
-    <text x={x} y={y} textAnchor="start">
-      {`${value} UAH`}
-    </text>
-  );
-};
 export const Chart = ({ data }) => {
+  const mode = useSelector(getMode);
+
+  console.log(mode);
+
+  const modeColor = mode.mode === 'light' ? '#52555F' : '#FFFFFF';
+
+  const customLabelHorizontal = ({ x, y, width, value }) => {
+    return (
+      <text
+        x={x + width / 2}
+        y={y}
+        textAnchor="middle"
+        dy={-6}
+        style={{
+          fill: modeColor,
+        }}
+      >
+        {`${value} UAH`}
+      </text>
+    );
+  };
+
+  const customLabelVertical = ({ x, y, value }) => {
+    return (
+      <text x={x} y={y} textAnchor="start" style={{ fill: modeColor }}>
+        {`${value} UAH`}
+      </text>
+    );
+  };
+
   const matches = useMediaQuery('only screen and (min-width: 420px)');
 
   return (

@@ -9,8 +9,8 @@ const TotalStatsStyle = {
     display: block;
     text-align: center;
     margin: 0 auto 30px auto;
-    background-color: ${theme.colors.PrimaryWhite};
-    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    background-color: ${p => p.theme.colors.PrimaryWhite};
+    /* box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4); */
     border-radius: 20px;
 
     @media screen and (min-width: 768px) {
@@ -35,7 +35,7 @@ const TotalStatsStyle = {
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
-    color: ${theme.colors.TextGray};
+    color: ${p => p.theme.colors.TextGray};
 
     @media screen and (max-width: 768px) {
       justify-content: center;
