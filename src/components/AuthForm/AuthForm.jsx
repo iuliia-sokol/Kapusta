@@ -133,8 +133,6 @@ export const AuthForm = ({
             />
             <PasswordBtn onClick={handleShowPassword} type="button">
               <PasswordIcon
-                width="20px"
-                height="20px"
                 src={isPasswordShown ? eyeOpened : eyeClosed}
                 alt="Button show/hide password"
               />

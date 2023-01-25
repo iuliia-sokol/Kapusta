@@ -179,15 +179,27 @@ export const GoogleLoginLink = styled.a`
 `;
 
 export const PasswordBtn = styled.button`
-  width: 16px;
-  height: 16px;
+  /* width: 16px;
+  height: 16px; */
   position: absolute;
   right: 0;
   top: 0;
-  transform: translate(-30px, 40px);
+  transform: translate(-20px, 40px);
   border: none;
   background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    /* width: 20px;
+    height: 20px; */
+  }
 `;
 export const PasswordIcon = styled.img`
-  border: none;
+  width: 16px;
+  height: 16px;
+  z-index: 1000;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
