@@ -190,7 +190,6 @@ export const InputAmount = styled(Input)`
   background-color: ${p => p.theme.colors.PrimaryWhite};
   border-radius: 0 0 16px 0;
   color: ${p => p.theme.colors.PrimaryBlack};
-  z-index: 10;
 
   &::placeholder {
     font-family: inherit;
