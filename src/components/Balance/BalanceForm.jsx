@@ -69,7 +69,7 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
             notifySettings
           )
         : Notiflix.Notify.warning(
-            `Баланс повинен відрізнятись від попереднього!`,
+            `Оновлений баланс має відрізнятись від попереднього!`,
             notifySettings
           );
       return;

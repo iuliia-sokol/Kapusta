@@ -6,12 +6,13 @@ import {
   removeTransaction,
 } from 'redux/transactions/transactionsOps';
 import { selectTransactions } from 'redux/transactions/transactionsSelectors';
-import { wordTranslator } from 'utils/wordTranslator';
+import { wordTranslator, wordTranslatorUK } from 'utils/wordTranslator';
 import { getParseDate } from 'utils/getParseDate';
 import stylesTransactionsList from './TransactionsListStyle';
 import svg from '../../images/icons_sprite.svg';
 import { formattingSum } from 'utils/formattingSum';
 import { sortTransactions } from 'utils/sortTransactions';
+import { getLang } from 'redux/lang/langSelectors';
 
 const {
   BoxForList,
@@ -36,12 +37,14 @@ const {
 } = stylesTransactionsList;
 
 function TransactionsList({ type }) {
+  const lang = useSelector(getLang).lang;
   const transactions = useSelector(selectTransactions);
   const dispatch = useDispatch();
 
   document.addEventListener('resize', event => {
     console.log('event :>> ', event);
   });
+
   useEffect(() => {
     if (type === 'expense') {
       dispatch(fetchExpenseTransactions());
@@ -57,10 +60,26 @@ function TransactionsList({ type }) {
     <>
       <BoxForList>
         <ListHeaderItems>
-          <DateHeaderStyle>Date</DateHeaderStyle>
-          <DescriptionHeaderStyle>Description</DescriptionHeaderStyle>
-          <CategoryHeaderStyle>Category</CategoryHeaderStyle>
-          <AmountHeaderStyle>Sum</AmountHeaderStyle>
+          {lang === 'en' ? (
+            <DateHeaderStyle>Date</DateHeaderStyle>
+          ) : (
+            <DateHeaderStyle>Дата</DateHeaderStyle>
+          )}
+          {lang === 'en' ? (
+            <DescriptionHeaderStyle>Description</DescriptionHeaderStyle>
+          ) : (
+            <DescriptionHeaderStyle>Опис</DescriptionHeaderStyle>
+          )}
+          {lang === 'en' ? (
+            <CategoryHeaderStyle>Category</CategoryHeaderStyle>
+          ) : (
+            <CategoryHeaderStyle>Категорія</CategoryHeaderStyle>
+          )}
+          {lang === 'en' ? (
+            <AmountHeaderStyle>Sum</AmountHeaderStyle>
+          ) : (
+            <AmountHeaderStyle>Сума</AmountHeaderStyle>
+          )}
         </ListHeaderItems>
         <List>
           {transactions[type].length !== 0 &&
@@ -80,16 +99,29 @@ function TransactionsList({ type }) {
                           {operation.description}
                         </DescriptionStyle>
                       </DescriptionStyleTabletWrapper>
-                      <CategoryStyle>
-                        {wordTranslator(operation.category)}
-                      </CategoryStyle>
+                      {lang === 'en' ? (
+                        <CategoryStyle>
+                          {wordTranslator(operation.category)}
+                        </CategoryStyle>
+                      ) : (
+                        <CategoryStyle>
+                          {wordTranslatorUK(operation.category)}
+                        </CategoryStyle>
+                      )}
                     </DateDescrWrapper>
                   </DataWrapper>
                   <AmountWrapper>
-                    <AmountStyle type={type}>
-                      {type === 'expense' && '-'}{' '}
-                      {formattingSum(operation.amount)} UAH
-                    </AmountStyle>
+                    {lang === 'en' ? (
+                      <AmountStyle type={type}>
+                        {type === 'expense' && '-'}{' '}
+                        {formattingSum(operation.amount)} UAH
+                      </AmountStyle>
+                    ) : (
+                      <AmountStyle type={type}>
+                        {type === 'expense' && '-'}{' '}
+                        {formattingSum(operation.amount)} ГРН
+                      </AmountStyle>
+                    )}
                     <BtnForRemove
                       type="button"
                       onClick={() => {

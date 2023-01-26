@@ -110,34 +110,6 @@ export const removeTransaction = createAsyncThunk(
   }
 );
 
-// export const API_TRANSACTION = {
-//   expense: {
-//     apiTransactionsCategoriesEndpoint: 'transaction/expense-categories',
-//     apiAddTransactionEndpoint: 'transaction/expense',
-//     apiCategories: {
-//       Продукты: 'Products',
-//       Алкоголь: 'Alcohol',
-//       Развлечения: 'Entertainment',
-//       Здоровье: 'Health',
-//       Транспорт: 'Transport',
-//       'Всё для дома': 'Housekeeping',
-//       Техника: 'Electronics',
-//       'Коммуналка и связь': 'Communications',
-//       'Спорт и хобби': 'Activities',
-//       Образование: 'Education',
-//       Прочее: 'Other',
-//     },
-//   },
-//   income: {
-//     apiTransactionsCategoriesEndpoint: 'transaction/income-categories',
-//     apiAddTransactionEndpoint: 'transaction/income',
-//     apiCategories: {
-//       'З/П': 'Salary',
-//       'Доп. доход': 'AddIncome',
-//     },
-//   },
-// };
-
 export const fetchCategoriesOp = createAsyncThunk(
   'transactions/fetchCategories',
   async (type, thunkAPI) => {
@@ -145,10 +117,15 @@ export const fetchCategoriesOp = createAsyncThunk(
       const { data } = await instance.get(
         API_TRANSACTION[type].apiTransactionsCategoriesEndpoint
       );
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
       const optionsArray = data.map((option, i) => {
         return {
           value: i,
-          label: API_TRANSACTION[type].apiCategories[option] ?? 'Other',
+          label:
+            lang === 'en'
+              ? API_TRANSACTION[type].apiCategories[option]
+              : API_TRANSACTION[type].apiCategoriesUK[option] ?? 'Other',
         };
       });
       return { type, optionsArray };

@@ -2,8 +2,12 @@ import { createPortal } from 'react-dom';
 import { BackDrop, Close, Modal, Title, WrapBtn } from './Popup.styled';
 import { Btn } from 'components/Buttons/Btn';
 import sprite from '../../images/icons_sprite.svg';
+import { getLang } from 'redux/lang/langSelectors';
+import { useSelector } from 'react-redux';
 
 export const Popup = ({ popup, setPopup }) => {
+  const lang = useSelector(getLang).lang;
+
   const handleLogout = () => {
     popup.action();
     closePopup();
@@ -29,8 +33,16 @@ export const Popup = ({ popup, setPopup }) => {
         </Close>
         <Title>{popup.title}</Title>
         <WrapBtn>
-          <Btn type="button" text="Yes" onClick={handleLogout} />
-          <Btn type="button" text="No" onClick={closePopup} />
+          <Btn
+            type="button"
+            text={lang === 'en' ? 'Yes' : 'Так'}
+            onClick={handleLogout}
+          />
+          <Btn
+            type="button"
+            text={lang === 'en' ? 'No' : 'Ні'}
+            onClick={closePopup}
+          />
         </WrapBtn>
       </Modal>
     </BackDrop>,

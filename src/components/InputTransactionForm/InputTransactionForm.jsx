@@ -32,16 +32,21 @@ import {
 } from './styles/InputTransactionForm.styled';
 import { ShowFormButton } from 'components/ShowFormBtn/ShowFormBtn';
 import { CustomSelect } from 'components/Select/CustomSelect';
+import { getLang } from 'redux/lang/langSelectors';
 
 export default function InputTransactionForm({ type }) {
+  const lang = useSelector(getLang).lang;
+
   const TRANSACTION_FORM_DATA = {
     expense: {
-      description: 'Product description',
-      selectCategoryPlaceholder: 'Product category',
+      description: lang === 'en' ? 'Product description' : 'Опис товару',
+      selectCategoryPlaceholder:
+        lang === 'en' ? 'Product category' : 'Категорія товару',
     },
     income: {
-      description: 'Income description',
-      selectCategoryPlaceholder: 'Income category',
+      description: lang === 'en' ? 'Income description' : 'Опис прибутку',
+      selectCategoryPlaceholder:
+        lang === 'en' ? 'Income category' : 'Вид прибутку',
     },
   };
 
@@ -57,7 +62,9 @@ export default function InputTransactionForm({ type }) {
   const [showForm, setShowForm] = useState(false);
 
   const dispatch = useDispatch();
+
   const transactionsOptions = useSelector(selectTransactionsOptions);
+
   const transactionsOptionsLength = useSelector(
     selectTransactionsOptionsLength
   );
@@ -68,7 +75,7 @@ export default function InputTransactionForm({ type }) {
 
     dispatch(fetchCategoriesOp(type));
     // eslint-disable-next-line
-  }, [type]);
+  }, [type, lang]);
 
   const onClearForm = () => {
     setDate(today);
@@ -79,24 +86,40 @@ export default function InputTransactionForm({ type }) {
   const isFormValid = (product, category, sum) => {
     let isValid = true;
     if (!product) {
-      Notiflix.Notify.warning(
-        'You should enter transaction description',
-        notifySettings
-      );
+      lang === 'en'
+        ? Notiflix.Notify.warning(
+            'You should enter transaction description',
+            notifySettings
+          )
+        : Notiflix.Notify.warning(
+            'Необхідно ввести опис транзакції',
+            notifySettings
+          );
+
       isValid = false;
     }
     if (!category) {
-      Notiflix.Notify.warning(
-        'You should choose transaction category',
-        notifySettings
-      );
+      lang === 'en'
+        ? Notiflix.Notify.warning(
+            'You should choose transaction category',
+            notifySettings
+          )
+        : Notiflix.Notify.warning(
+            'Необхідно обрати категорію транзакції',
+            notifySettings
+          );
       isValid = false;
     }
     if (sum === '' || parseFloat(sum) < 0.01) {
-      Notiflix.Notify.warning(
-        'You should enter transaction amount',
-        notifySettings
-      );
+      lang === 'en'
+        ? Notiflix.Notify.warning(
+            'You should enter transaction amount',
+            notifySettings
+          )
+        : Notiflix.Notify.warning(
+            'Необхідно ввести суму транзакції',
+            notifySettings
+          );
       isValid = false;
     }
     return isValid;
@@ -112,10 +135,13 @@ export default function InputTransactionForm({ type }) {
       description: formData.product,
       amount: parseFloat(formData.sum),
       date: date.toISOString().split('T')[0],
-      category: Object.keys(API_TRANSACTION[type].apiCategories)[
-        category.value
-      ],
+      category:
+        lang === 'en'
+          ? Object.keys(API_TRANSACTION[type].apiCategories)[category.value]
+          : Object.keys(API_TRANSACTION[type].apiCategoriesUK)[category.value],
     };
+
+    console.log(transaction);
     dispatch(addTransactionOp({ type, transaction }));
     onClearForm();
   };

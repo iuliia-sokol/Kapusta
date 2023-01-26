@@ -17,6 +17,19 @@ export const API_TRANSACTION = {
       Образование: 'Education',
       Прочее: 'Other',
     },
+    apiCategoriesUK: {
+      Продукты: 'Продукти',
+      Алкоголь: 'Алкоголь',
+      Развлечения: 'Розваги',
+      Здоровье: 'Здоров`я',
+      Транспорт: 'Транспорт',
+      'Всё для дома': 'Господарство',
+      Техника: 'Техніка',
+      'Коммуналка и связь': 'Комуналка/зв`язок',
+      'Спорт и хобби': 'Спорт/хобі',
+      Образование: 'Освіта',
+      Прочее: 'Інше',
+    },
   },
   income: {
     apiTransactionsCategoriesEndpoint: 'transaction/income-categories',
@@ -24,6 +37,10 @@ export const API_TRANSACTION = {
     apiCategories: {
       'З/П': 'Salary',
       'Доп. доход': 'Additional income',
+    },
+    apiCategoriesUK: {
+      'З/П': 'Зарплата',
+      'Доп. доход': 'Додатковий дохід',
     },
   },
 };
