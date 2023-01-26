@@ -21,6 +21,7 @@ import { logoutUser } from 'redux/auth/authOperations';
 import svg from '../../images/icons_sprite.svg';
 import { Popup } from 'components/Popup/Popup';
 import { ThemeSwitcher } from 'components/ThemeBtn/ThemeBtn';
+import { LangSwitcher } from 'components/LanguageBtn/LangBtn';
 
 export function Header() {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export function Header() {
         </LogoContainer>
         <ControlsWrapper>
           <ThemeSwitcher />
+          <LangSwitcher />
           {token && (
             <StyledContainer>
               <Img>
