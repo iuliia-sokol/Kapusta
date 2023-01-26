@@ -26,8 +26,8 @@ const stylesTransactionsList = {
     line-height: 1.17;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    background-color: ${theme.colors.PrimaryGray};
     background-color: ${p => p.theme.colors.BgGray};
+
     @media screen and (min-width: 768px) {
       display: flex;
       padding: 0 20px;
@@ -51,6 +51,7 @@ const stylesTransactionsList = {
     overflow: hidden;
     text-overflow: ellipsis;
     color: ${p => p.theme.colors.PrimaryBlack};
+
     @media screen and (min-width: 1280px) {
       margin-right: 35px;
     }
@@ -61,6 +62,7 @@ const stylesTransactionsList = {
     width: 125px;
     text-align: center;
     color: ${p => p.theme.colors.PrimaryBlack};
+
     @media screen and (min-width: 1280px) {
       width: 115px;
       margin-right: 50px;
@@ -73,6 +75,7 @@ const stylesTransactionsList = {
     text-align: center;
     margin-right: 20px;
     color: ${p => p.theme.colors.PrimaryBlack};
+
     @media screen and (min-width: 1280px) {
       width: 150px;
       margin-right: 50px;
@@ -85,10 +88,11 @@ const stylesTransactionsList = {
     gap: 8px;
     margin: 0;
     padding: 12px 20px 12px;
-    max-height: 168px;
+    max-height: 30vh;
     overflow-y: auto;
     color: ${p => p.theme.colors.PrimaryBlack};
     background-color: ${p => p.theme.colors.PrimaryWhite};
+
     ::-webkit-scrollbar {
       width: 7px;
     }
@@ -99,11 +103,13 @@ const stylesTransactionsList = {
     ::-webkit-scrollbar-track {
       background-color: ${p => p.theme.colors.BgGray};
     }
+
     @media screen and (min-width: 768px) {
       padding: 0px;
       gap: 0px;
       max-height: 360px;
     }
+
     @media screen and (min-width: 1280px) {
       max-height: 400px;
     }

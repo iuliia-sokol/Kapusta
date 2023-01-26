@@ -35,8 +35,6 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   const [minusBalance, setMinusBalance] = useState(false);
 
   useEffect(() => {
-    setBalance(savedBalance);
-    setMinusBalance(false);
     if (savedBalance < 0) {
       setMinusBalance(true);
       Notiflix.Notify.info(
@@ -44,6 +42,19 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
         notifySettings
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setBalance(savedBalance);
+    setMinusBalance(false);
+    // if (savedBalance < 0) {
+    //   setMinusBalance(true);
+    //   Notiflix.Notify.info(
+    //     `&#9757; Oops, you have negative balance`,
+    //     notifySettings
+    //   );
+    // }
   }, [savedBalance]);
 
   const handleChange = ({ target: { value } }) => {
