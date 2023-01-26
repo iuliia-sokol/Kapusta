@@ -221,7 +221,7 @@ export default function InputTransactionForm({ type }) {
             onClick={onFormSubmit}
           />
           <Btn
-            text={lang === 'en' ? 'CLEAR' : 'СКИНУТИ'}
+            text={lang === 'en' ? 'CLEAR' : 'СКАСУВАТИ'}
             onClick={onClearForm}
           />
         </ButtonsWrapper>

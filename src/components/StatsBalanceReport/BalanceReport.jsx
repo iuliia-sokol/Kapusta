@@ -18,8 +18,10 @@ import { currentPeriod } from 'redux/statistics/statsSlice';
 import { getStatistics } from 'redux/statistics/statsOperations';
 import { useSelector, useDispatch } from 'react-redux';
 import { BalanceFrom } from 'components/Balance/BalanceForm';
+import { getLang } from 'redux/lang/langSelectors';
 
 export function BalanceReport() {
+  const lang = useSelector(getLang).lang;
   const [month, setMonthes] = useState(1);
   const statePeriod = useSelector(state => state.statistics.period);
   const dispatch = useDispatch();
@@ -32,9 +34,8 @@ export function BalanceReport() {
 
     const year = objDate.getFullYear();
 
-    const locale = 'en-us',
+    const locale = lang === 'en' ? 'en-us' : 'uk',
       month = objDate.toLocaleString(locale, { month: 'long' });
-
     return `${month} ${year}`;
   };
 
@@ -75,19 +76,29 @@ export function BalanceReport() {
           <MainPageSvg>
             <use href={`${svg}#arrow_back`}></use>
           </MainPageSvg>
-          <MainPageText>Main Page</MainPageText>
+          {lang === 'en' ? (
+            <MainPageText>Main Page</MainPageText>
+          ) : (
+            <MainPageText>До головної сторінки</MainPageText>
+          )}
         </StyledLink>
         <DataWrapper>
           <BalanceFrom page="stats" btnDisplay={false} />
           <MounthBox>
-            <Period>Current period</Period>
+            {lang === 'en' ? (
+              <Period>Current period</Period>
+            ) : (
+              <Period>Поточний період</Period>
+            )}
             <MounthContainer>
               <PeriodBtn type="button" onClick={prevMonth}>
                 <PeriodArrow>
                   <use href={`${svg}#arrow_left`} />
                 </PeriodArrow>
               </PeriodBtn>
+
               <PeriodData>{getDate(month)}</PeriodData>
+
               <PeriodBtn type="button" onClick={nextMonth}>
                 <PeriodArrow>
                   <use href={`${svg}#arrow_right`} />
