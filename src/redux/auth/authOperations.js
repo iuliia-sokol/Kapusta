@@ -52,7 +52,8 @@ export const fetchCurrentUser = createAsyncThunk(
         status,
         message: data.message,
       };
-      Notiflix.Notify.failure(`${error.message}`, notifySettings);
+      console.log(error.message);
+      Notiflix.Notify.failure(`Please login again!`, notifySettings);
       return rejectWithValue(error);
     }
   }

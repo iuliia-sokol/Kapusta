@@ -26,6 +26,7 @@ export const Close = styled(BtnElement)`
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-color: transparent;
 
   svg {
@@ -35,6 +36,7 @@ export const Close = styled(BtnElement)`
     display: flex;
     align-items: center;
     justify-content: center;
+    stroke: ${p => p.theme.colors.iconsFill};
   }
 `;
 
@@ -42,6 +44,7 @@ const popup = keyframes`
   0% {opacity: 0;}
   100% {opacity: 1;}
 `;
+
 export const Modal = styled.div`
   position: absolute;
   top: 50%;
@@ -49,7 +52,7 @@ export const Modal = styled.div`
   transform: translate(-50%, -50%);
   width: 340px;
   height: 154px;
-  background-color: #ffffff;
+  background-color: ${p => p.theme.colors.bodyColor};
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
   border-radius: 30px;
   padding: 20px;

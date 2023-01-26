@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,26 +36,11 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   const [minusBalance, setMinusBalance] = useState(false);
 
   useEffect(() => {
-    if (savedBalance < 0) {
-      setMinusBalance(true);
-      Notiflix.Notify.info(
-        `&#9757; Oops, you have negative balance`,
-        notifySettings
-      );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
     setBalance(savedBalance);
     setMinusBalance(false);
-    // if (savedBalance < 0) {
-    //   setMinusBalance(true);
-    //   Notiflix.Notify.info(
-    //     `&#9757; Oops, you have negative balance`,
-    //     notifySettings
-    //   );
-    // }
+    if (savedBalance < 0) {
+      setMinusBalance(true);
+    }
   }, [savedBalance]);
 
   const handleChange = ({ target: { value } }) => {
@@ -130,3 +116,5 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
     </>
   );
 }
+
+export const MemoizedBalanceForm = React.memo(BalanceFrom);

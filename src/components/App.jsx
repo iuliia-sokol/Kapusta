@@ -1,4 +1,4 @@
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Route,
@@ -34,11 +34,14 @@ export const App = () => {
   const selectedMode = useSelector(getMode);
   const themeMode = selectedMode.mode === 'light' ? theme : darkTheme;
 
+  const [isHintShown, setIsHintShown] = useState(false);
+
   const dispatch = useDispatch();
   const token = useSelector(getToken);
 
   useEffect(() => {
     if (!token) {
+      setIsHintShown(false);
       return;
     }
     dispatch(fetchCurrentUser());
@@ -82,7 +85,10 @@ export const App = () => {
             path="/wallet"
             element={
               <PrivateRoute token={token}>
-                <WalletPage />
+                <WalletPage
+                  setIsHintShown={setIsHintShown}
+                  isHintShown={isHintShown}
+                />
               </PrivateRoute>
             }
           />
@@ -94,7 +100,6 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          {/* <Route path="*" element={<Navigate to="/login" />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
           {/* <Route path="api/auth/google-redirect"
           // element={<GoogleLoader />}

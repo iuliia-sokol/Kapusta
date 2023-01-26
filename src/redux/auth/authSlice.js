@@ -78,7 +78,10 @@ export const authSlice = createSlice({
         state.refreshToken = null;
         state.isLoggedIn = false;
 
-        Notiflix.Notify.info('See you again', notifySettings);
+        Notiflix.Notify.info(
+          'Stay safe and see you again &#9996;',
+          notifySettings
+        );
       })
       .addCase(logoutUser.rejected, (state, { payload }) => {
         state.error = payload;
