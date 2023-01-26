@@ -4,6 +4,7 @@ import styledComponents from 'components/Expenses/styleExpenses';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
 import { formattingSum } from 'utils/formattingSum';
+import { getLang } from 'redux/lang/langSelectors';
 
 const {
   ListOfBalanceChanges,
@@ -20,9 +21,20 @@ const {
 const Income = ({ onClick }) => {
   const statistics = useSelector(state => state.statistics.statistics);
   const [filter, setFilter] = useState();
+  const lang = useSelector(getLang).lang;
 
   if (!statistics) {
-    return <TitleOfBalanceChanges>"No data to display!"</TitleOfBalanceChanges>;
+    return (
+      <BoxStats>
+        {lang === 'en' ? (
+          <TitleOfBalanceChanges>No data to display</TitleOfBalanceChanges>
+        ) : (
+          <TitleOfBalanceChanges>
+            Наразі немає даних для відображення
+          </TitleOfBalanceChanges>
+        )}
+      </BoxStats>
+    );
   }
 
   const {
@@ -73,7 +85,12 @@ const Income = ({ onClick }) => {
               <use href={`${svg}#arrow_left`} />
             </svg>
           </BtnToggleStats>
-          <TitleOfBalanceChanges>Income</TitleOfBalanceChanges>
+          {lang === 'en' ? (
+            <TitleOfBalanceChanges>Income</TitleOfBalanceChanges>
+          ) : (
+            <TitleOfBalanceChanges>Прибутки</TitleOfBalanceChanges>
+          )}
+
           <BtnToggleStats type="button" onClick={onClick}>
             <svg width="10" height="10">
               <use href={`${svg}#arrow_right`} />
@@ -91,7 +108,7 @@ const Income = ({ onClick }) => {
                     <use href={`${svg}#salary`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Salary</p>
+                {lang === 'en' ? <p>Salary</p> : <p>Зарплата</p>}
               </ItemOfBalanceChanges>
             )}
             {income && (
@@ -102,12 +119,20 @@ const Income = ({ onClick }) => {
                     <use href={`${svg}#income`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Add. income</p>
+                {lang === 'en' ? (
+                  <p>Additional income</p>
+                ) : (
+                  <p>Додатковий дохід</p>
+                )}
               </ItemOfBalanceChanges>
             )}
           </ListOfBalanceChanges>
+        ) : lang === 'en' ? (
+          <TitleOfBalanceChanges>No data to display</TitleOfBalanceChanges>
         ) : (
-          <TitleOfBalanceChanges>"No data to display!"</TitleOfBalanceChanges>
+          <TitleOfBalanceChanges>
+            Наразі немає даних для відображення
+          </TitleOfBalanceChanges>
         )}
       </BoxStats>
       {filtredData() && (

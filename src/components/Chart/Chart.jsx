@@ -10,15 +10,17 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { getLang } from 'redux/lang/langSelectors';
 import { getMode } from 'redux/theme/themeSelector';
 
 export const Chart = ({ data }) => {
+  const lang = useSelector(getLang).lang;
   const mode = useSelector(getMode);
 
   const modeColor = mode.mode === 'light' ? '#52555F' : '#FFFFFF';
 
   const customLabelHorizontal = ({ x, y, width, value }) => {
-    return (
+    return lang === 'en' ? (
       <text
         x={x + width / 2}
         y={y}
@@ -30,13 +32,29 @@ export const Chart = ({ data }) => {
       >
         {`${value} UAH`}
       </text>
+    ) : (
+      <text
+        x={x + width / 2}
+        y={y}
+        textAnchor="middle"
+        dy={-6}
+        style={{
+          fill: modeColor,
+        }}
+      >
+        {`${value} ГРН`}
+      </text>
     );
   };
 
   const customLabelVertical = ({ x, y, value }) => {
-    return (
+    return lang === 'en' ? (
       <text x={x} y={y} textAnchor="start" style={{ fill: modeColor }}>
         {`${value} UAH`}
+      </text>
+    ) : (
+      <text x={x} y={y} textAnchor="start" style={{ fill: modeColor }}>
+        {`${value} ГРН`}
       </text>
     );
   };

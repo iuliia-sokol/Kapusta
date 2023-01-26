@@ -5,6 +5,7 @@ import styledComponents from './styleExpenses';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
 import { formattingSum } from 'utils/formattingSum';
+import { getLang } from 'redux/lang/langSelectors';
 
 const {
   ListOfBalanceChanges,
@@ -21,11 +22,18 @@ const {
 const Expenses = ({ onClick }) => {
   const [filter, setFilter] = useState('');
   const statistics = useSelector(state => state.statistics.statistics);
+  const lang = useSelector(getLang).lang;
 
   if (!statistics) {
     return (
       <BoxStats>
-        <TitleOfBalanceChanges>"No data to display!"</TitleOfBalanceChanges>
+        {lang === 'en' ? (
+          <TitleOfBalanceChanges>No data to display</TitleOfBalanceChanges>
+        ) : (
+          <TitleOfBalanceChanges>
+            Наразі немає даних для відображення
+          </TitleOfBalanceChanges>
+        )}
       </BoxStats>
     );
   }
@@ -87,7 +95,12 @@ const Expenses = ({ onClick }) => {
               <use href={`${svg}#arrow_left`} />
             </svg>
           </BtnToggleStats>
-          <TitleOfBalanceChanges>Expenses</TitleOfBalanceChanges>
+          {lang === 'en' ? (
+            <TitleOfBalanceChanges>Expenses</TitleOfBalanceChanges>
+          ) : (
+            <TitleOfBalanceChanges>Витрати</TitleOfBalanceChanges>
+          )}
+
           <BtnToggleStats type="button" onClick={onClick}>
             <svg width="10" height="10">
               <use href={`${svg}#arrow_right`} />
@@ -106,8 +119,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#products`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-
-                <p>Products</p>
+                {lang === 'en' ? <p>Products</p> : <p>Продукти</p>}
               </ItemOfBalanceChanges>
             )}
             {alcohol && (
@@ -119,7 +131,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#alcohol`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Alcohol</p>
+                {lang === 'en' ? <p>Alcohol</p> : <p>Алкоголь</p>}
               </ItemOfBalanceChanges>
             )}
             {entertainment && (
@@ -131,7 +143,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#entertainment`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Entertainment</p>
+                {lang === 'en' ? <p>Entertainment</p> : <p>Розваги</p>}
               </ItemOfBalanceChanges>
             )}
             {health && (
@@ -143,7 +155,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#health`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Health</p>
+                {lang === 'en' ? <p>Health</p> : <p>Здоров'я</p>}
               </ItemOfBalanceChanges>
             )}
             {transport && (
@@ -155,7 +167,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#transport`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Transport</p>
+                {lang === 'en' ? <p>Transport</p> : <p>Транспорт</p>}
               </ItemOfBalanceChanges>
             )}
             {housing && (
@@ -167,7 +179,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#housing`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Housing</p>
+                {lang === 'en' ? <p>Housing</p> : <p>Господарство</p>}
               </ItemOfBalanceChanges>
             )}
             {technique && (
@@ -179,7 +191,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#technique`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Technique</p>
+                {lang === 'en' ? <p>Technique</p> : <p>Техніка</p>}
               </ItemOfBalanceChanges>
             )}
             {communal && (
@@ -194,7 +206,11 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#communal`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Communal, communication</p>
+                {lang === 'en' ? (
+                  <p>Communal, communication</p>
+                ) : (
+                  <p>Комуналка, зв'язок</p>
+                )}
               </ItemOfBalanceChanges>
             )}
             {hobbies && (
@@ -206,7 +222,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#hobbies`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Sports, hobbies</p>
+                {lang === 'en' ? <p>Sports, hobbies</p> : <p>Спорт, хобі</p>}
               </ItemOfBalanceChanges>
             )}
             {education && (
@@ -218,7 +234,7 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#education`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Education</p>
+                {lang === 'en' ? <p>Education</p> : <p>Освіта</p>}
               </ItemOfBalanceChanges>
             )}
             {other && (
@@ -230,12 +246,16 @@ const Expenses = ({ onClick }) => {
                     <use href={`${svg}#other`} />
                   </SvgBoxStyle>
                 </BoxForSvg>
-                <p>Other</p>
+                {lang === 'en' ? <p>Other</p> : <p>Інше</p>}
               </ItemOfBalanceChanges>
             )}
           </ListOfBalanceChanges>
+        ) : lang === 'en' ? (
+          <TitleOfBalanceChanges>No data to display</TitleOfBalanceChanges>
         ) : (
-          <TitleOfBalanceChanges>"No data to display!"</TitleOfBalanceChanges>
+          <TitleOfBalanceChanges>
+            Наразі немає даних для відображення
+          </TitleOfBalanceChanges>
         )}
       </BoxStats>
       {filtredData() && (

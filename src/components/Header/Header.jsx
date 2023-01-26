@@ -35,7 +35,6 @@ export function Header() {
   });
 
   const lang = useSelector(getLang).lang;
-  // console.log(lang);
 
   const handleExit = () => {
     setPopup({
@@ -71,7 +70,11 @@ export function Header() {
               <Name>{user.email}</Name>
               <Line />
               <Exit type="button" onClick={handleExit}>
-                <ExitText>Exit</ExitText>
+                {lang === 'en' ? (
+                  <ExitText>Exit</ExitText>
+                ) : (
+                  <ExitText>Вийти</ExitText>
+                )}
                 <ExitSvg>
                   <use href={`${svg}#logout`}></use>
                 </ExitSvg>

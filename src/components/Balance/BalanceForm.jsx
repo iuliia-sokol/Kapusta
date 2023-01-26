@@ -20,6 +20,7 @@ import { Notification } from 'components/StartNotification/Notification';
 import { Popup } from 'components/Popup/Popup';
 import { fetchUserBalance } from 'redux/transactions/transactionsOps';
 import { notifySettings } from '../../utils/notifySettings';
+import { getLang } from 'redux/lang/langSelectors';
 
 export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
 
   const [balance, setBalance] = useState(savedBalance ?? 0);
   const [minusBalance, setMinusBalance] = useState(false);
+  const lang = useSelector(getLang).lang;
 
   useEffect(() => {
     setBalance(savedBalance);
@@ -45,7 +47,12 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
 
   const handleChange = ({ target: { value } }) => {
     if (+value === 0) {
-      Notiflix.Notify.warning(`Balance cannot be "0"!`, notifySettings);
+      lang === 'en'
+        ? Notiflix.Notify.warning(`Balance cannot be "0"!`, notifySettings)
+        : Notiflix.Notify.warning(
+            `Баланс не повинен бути рівним "0"!`,
+            notifySettings
+          );
     }
     setBalance(Number(value).toFixed(2));
   };
@@ -56,10 +63,15 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
       return;
     }
     if (+balance === +savedBalance) {
-      Notiflix.Notify.warning(
-        `New balance cannot be the same!`,
-        notifySettings
-      );
+      lang === 'en'
+        ? Notiflix.Notify.warning(
+            `New balance cannot be the same!`,
+            notifySettings
+          )
+        : Notiflix.Notify.warning(
+            `Баланс повинен відрізнятись від попереднього!`,
+            notifySettings
+          );
       return;
     }
 
@@ -74,7 +86,11 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   return (
     <>
       <BalanceForm page={page}>
-        <Text htmlFor="balance">Balance:</Text>
+        {lang === 'en' ? (
+          <Text htmlFor="balance">Balance:</Text>
+        ) : (
+          <Text htmlFor="balance">Баланс:</Text>
+        )}
         <BaseContainer>
           <CurrentBalanceContainer page={page} btnDisplay={btnDisplay}>
             <Input
@@ -90,7 +106,11 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
               value={balance || savedBalance || ''}
               minusBalance={minusBalance}
             />
-            <CurrentBalance>uah</CurrentBalance>
+            {lang === 'en' ? (
+              <CurrentBalance>uah</CurrentBalance>
+            ) : (
+              <CurrentBalance>грн</CurrentBalance>
+            )}
             {createPortal(
               <AbsoluteContainer>
                 <BalanceForm>
@@ -108,7 +128,7 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
             onClick={onClick}
             btnDisplay={btnDisplay}
           >
-            Confirm
+            {lang === 'en' ? <p>Confirm</p> : <p>Підтвердити</p>}
           </StyledBtn>
         </BaseContainer>
       </BalanceForm>
