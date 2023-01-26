@@ -167,6 +167,9 @@ export const InputAmountWrapper = styled.div`
   border-radius: 0 0 16px 0;
 
   & svg {
+    position: absolute;
+    top: 11px;
+    right: 16px;
     fill: ${p => p.theme.colors.iconsFill};
     transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
   }

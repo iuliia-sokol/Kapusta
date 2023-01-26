@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
-import './styles/InputTransactionForm.css';
 import { notifySettings } from '../../utils/notifySettings';
 import sprite from 'images/icons_sprite.svg';
 import { Btn } from 'components/Buttons/Btn';
@@ -210,19 +209,21 @@ export default function InputTransactionForm({ type }) {
                 required
                 onChange={e => validateSumInput(e.target.value)}
               />
-              <svg
-                className="input-product-form--calc-svg"
-                width="20"
-                height="20"
-              >
+              <svg width="20" height="20">
                 <use href={sprite + `#calculator`}></use>
               </svg>
             </InputAmountWrapper>
           </SelectAmountWrapper>
         </InputGroupWrapper>
         <ButtonsWrapper>
-          <Btn text="INPUT" onClick={onFormSubmit} />
-          <Btn text="CLEAR" onClick={onClearForm} />
+          <Btn
+            text={lang === 'en' ? 'INPUT' : 'ДОДАТИ'}
+            onClick={onFormSubmit}
+          />
+          <Btn
+            text={lang === 'en' ? 'CLEAR' : 'СКИНУТИ'}
+            onClick={onClearForm}
+          />
         </ButtonsWrapper>
       </InputForm>
     </MainContainer>
