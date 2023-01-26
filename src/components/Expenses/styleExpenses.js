@@ -25,6 +25,10 @@ const styledComponents = {
     /* text-align: center; */
     margin: 0 auto 32px auto;
 
+    @media screen and (min-width: 320px) {
+      width: 320px;
+    }
+
     @media screen and (min-width: 768px) {
       width: 705px;
       padding: 20px;
