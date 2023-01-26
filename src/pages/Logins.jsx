@@ -4,8 +4,12 @@ import { AuthForm } from 'components/AuthForm/AuthForm';
 import { AnimatedCabbagesBg } from 'components/AnimatedBg/AnimatedBg';
 import { AnimatedBottomCabbages } from 'components/AnimatedCabbagesBottom/AnimatedCabbagesBottom';
 import { AuthPageLogo } from 'components/AuthPageLogo/AuthPageLogo';
+import { getLang } from 'redux/lang/langSelectors';
+import { useSelector } from 'react-redux';
 
 const LoginPage = () => {
+  const lang = useSelector(getLang).lang;
+
   return (
     <Container>
       <AnimatedCabbagesBg />
@@ -14,10 +18,14 @@ const LoginPage = () => {
 
         <AuthForm
           formTitle="login"
-          btnText="Log in"
-          navLinkText="Register"
+          btnText={lang === 'en' ? 'Log in' : 'Логін'}
+          navLinkText={lang === 'en' ? 'Register' : 'Реєстрація'}
           navLinkAdress="/register"
-          hintText="Or log in using an email and password, after registering:"
+          hintText={
+            lang === 'en'
+              ? 'Or log in using an email and password, after registering:'
+              : 'Або залогіньтесь, використовуючи ваш емейл та пароль, після реєстрації:'
+          }
         />
       </ContentWrapper>
       <AnimatedBottomCabbages />

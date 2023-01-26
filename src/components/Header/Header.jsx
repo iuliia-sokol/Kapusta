@@ -22,6 +22,7 @@ import svg from '../../images/icons_sprite.svg';
 import { Popup } from 'components/Popup/Popup';
 import { ThemeSwitcher } from 'components/ThemeBtn/ThemeBtn';
 import { LangSwitcher } from 'components/LanguageBtn/LangBtn';
+import { getLang } from 'redux/lang/langSelectors';
 
 export function Header() {
   const dispatch = useDispatch();
@@ -33,10 +34,16 @@ export function Header() {
     action: null,
   });
 
+  const lang = useSelector(getLang).lang;
+  // console.log(lang);
+
   const handleExit = () => {
     setPopup({
       isShow: true,
-      title: 'Do you really want to leave?',
+      title:
+        lang === 'en'
+          ? 'Do you really want to leave?'
+          : 'Ви дійсно бажаєте вийти?',
       action: () => dispatch(logoutUser()),
     });
     document.querySelector('#modal').classList.add('js-action');
