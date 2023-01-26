@@ -41,6 +41,7 @@ const styledComponents = {
 
   BoxForSchedule: styled.div`
     width: 100%;
+    height: 350px;
     padding: 5px 5px;
     display: block;
     /* text-align: center; */
@@ -52,6 +53,7 @@ const styledComponents = {
 
     @media screen and (min-width: 320px) {
       width: 320px;
+      padding: 20px;
     }
 
     @media screen and (min-width: 768px) {

@@ -49,9 +49,10 @@ export const ImageWrapperBottom = styled.div`
   position: absolute;
   z-index: -10;
   width: 83px;
-  height: 89px;
+  height: 100px;
   bottom: 10px;
   left: 10%;
+  overflow: visible;
   background-image: url(${BgMonoCabbage});
   background-repeat: no-repeat;
   /* background-size: 83px 89px; */
