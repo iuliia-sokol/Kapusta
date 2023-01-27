@@ -16,10 +16,17 @@ export const addTransactionOp = createAsyncThunk(
       const summary = await instance.get(`transaction/${type}`);
       return { type, data, monthsStats: summary.data.monthsStats };
     } catch (error) {
-      Notiflix.Notify.warning(
-        `Server error (during fetching categories): ${error.message}`,
-        notifySettings
-      );
+       const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.warning(
+            `Server error (during fetching categories): ${error.message}`,
+            notifySettings
+          )
+        : Notiflix.Notify.warning(
+            `Помилка сервера: ${error.message}`,
+            notifySettings
+          );
       return thunkAPI.rejectWithValue({ error });
     }
   }
@@ -27,29 +34,41 @@ export const addTransactionOp = createAsyncThunk(
 
 export const fetchUserBalance = createAsyncThunk(
   'auth/balance',
-  async ({ balance }, { rejectWithValue }) => {
+  async ({ balance }, { getState, rejectWithValue }) => {
+    const state = getState();
+    const { lang } = state.language.lang;
     try {
       // console.log(typeof balance);
       if (balance < 1) {
-        Notiflix.Notify.warning(
-          `Ballance must be greater than or equal to 1`,
-          notifySettings
-        );
+        lang === 'en'
+          ? Notiflix.Notify.warning(
+              `Ballance must be greater than or equal to 1`,
+              notifySettings
+            )
+          : Notiflix.Notify.warning(
+              `Баланс має бути більше чи дорівнювати 1`,
+              notifySettings
+            );
         return;
       }
       const { data } = await instance.patch('/user/balance', {
         newBalance: +balance,
       });
-      console.log(data);
+      // console.log(data);
       return data;
     } catch ({ response }) {
+       const state = getState();
+       const { lang } = state.language.lang;
       const { status, data } = response;
       const error = {
         status,
         message: data.message,
       };
-      Notiflix.Notify.warning(`${error.message}`, notifySettings);
-      return rejectWithValue(error);
+      lang === 'en'?
+        Notiflix.Notify.warning(`${error.message}`, notifySettings) :
+       Notiflix.Notify.warning(`Щось пішло не так...`, notifySettings) ;
+      return rejectWithValue(error)
+        ;
     }
   }
 );

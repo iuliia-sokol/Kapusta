@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -30,19 +30,22 @@ export const LogoContainer = styled.div`
   height: 31px;
 `;
 
+const LogoAnimation = keyframes`
+    0% {transform: scale(1)}
+  50% {transform: scale(1.2)}
+   100% {transform: scale(1)}
+`;
+
 export const Block = styled.div`
   position: absolute;
   top: 5px;
   left: 6px;
-
   width: 33px;
   height: 26px;
-
   border-radius: 8px;
-
-  background-color: #fb7c2f;
-
+  background-color: ${p => p.theme.colors.PrimaryOrange};
   box-shadow: -6px -5px rgba(251, 124, 47, 0.2);
+  animation: ${LogoAnimation} 3500ms ease-in-out infinite;
 `;
 
 export const LogoSvg = styled.svg`
@@ -51,7 +54,8 @@ export const LogoSvg = styled.svg`
   left: 20px;
   height: 16.71px;
   width: 70px;
-  fill: ${props => props.theme.colors.PrimaryBlack};
+  fill: ${p => p.theme.colors.TextGray};
+  transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const StyledContainer = styled.div`
@@ -104,22 +108,26 @@ export const Line = styled.div`
 export const Exit = styled.button`
   display: flex;
   align-items: center;
-
+  text-decoration: none;
+  font-weight: 700;
   color: ${p => p.theme.colors.TextGray};
   background-color: transparent;
-
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
-
   padding: 0;
   border: 0;
-
   cursor: pointer;
 
   &:hover,
   &:focus {
-    color: #ff751d;
+    color: ${p => p.theme.colors.PrimaryOrange};
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.PrimaryOrange};
+    fill: ${p => p.theme.colors.PrimaryOrange};
   }
 `;
 
@@ -135,7 +143,6 @@ export const ExitText = styled.p`
 
 export const ExitSvg = styled.svg`
   display: none;
-
   width: 16px;
   height: 16px;
 

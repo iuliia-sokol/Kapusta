@@ -181,13 +181,13 @@ export const StyledLink = styled(NavLink)`
   /* color: rgba(82, 85, 95, 0.7); */
   color: ${p => p.theme.colors.TextGray};
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 
   & svg {
     fill: ${p => p.theme.colors.TextGray};
     transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  cursor: pointer;
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.PrimaryOrange};
