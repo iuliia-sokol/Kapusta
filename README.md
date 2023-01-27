@@ -18,7 +18,7 @@ Kapu$ta might attract both users, who prefer to keep their bills and financial r
 
 ## Optimizations
 
-Features developed by me: login/register pages, animation, customized datepicker and select, responsive layout (3 breakpoints: 320px, 768px, 1280px), light/dark modes, languages selection, translation of content into Ukrainian, add transaction bar show and hide for mobile version. 
+Features developed by me: login/register pages, animation, custom datepicker and select, responsive layout (3 breakpoints: 320px, 768px, 1280px), light/dark modes, languages selection, translation of content into Ukrainian, add transaction bar show and hide option for mobile version. 
 
 **NOTE:** Please be informed, that loginisation via Google might not work properly due to the backend specifics. 
 
