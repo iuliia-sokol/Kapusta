@@ -105,7 +105,6 @@ const transactionsSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.isLoadinng = false;
         state.error = null;
-        console.log('register', payload);
         state.balance = 0;
       })
       .addCase(loginUser.pending, state => {
@@ -115,7 +114,6 @@ const transactionsSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.isLoadinng = false;
         state.error = null;
-        console.log('loginUser', payload);
         state.balance = payload.userData.balance;
       })
       .addCase(loginUser.rejected, (state, { payload }) => {})
