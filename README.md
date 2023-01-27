@@ -1,7 +1,7 @@
 
 # Kapu$ta Project
 
-Keeping your financial life organized can help you save time and money.
+Keeping your financial life organised can help you save time and money.
 
 Kapu$ta is a finance management App, that can be helpful for saving and managing information of user's financial activities and provides financial infographics for selected period of time. It's main goal, lets say, is to keep user from overspending.
 
@@ -18,7 +18,7 @@ Kapu$ta might attract both users, who prefer to keep their bills and financial r
 
 ## Optimizations
 
-Features developed by me: login/register pages, animation, custom datepicker and select, responsive layout (3 breakpoints: 320px, 768px, 1280px), light/dark modes, languages selection, translation of content into Ukrainian, add transaction bar show and hide option for mobile version. 
+Features developed by me: login/register pages, animation, custom date-picker and select, responsive layout (3 breakpoints: 320px, 768px, 1280px), light/dark modes, languages selection, translation of content into Ukrainian, add transaction bar show and hide option for mobile version. 
 
 **NOTE:** Please be informed, that loginisation via Google might not work properly due to the backend specifics. 
 
