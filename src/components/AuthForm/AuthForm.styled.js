@@ -82,11 +82,10 @@ export const Input = styled.input`
   width: 100%;
   font-size: 14px;
   font-family: 'Roboto';
-
   background-color: ${p => p.theme.colors.SecondGray};
   border-radius: 30px;
   border: none;
-  color: ${p => p.theme.colors.PrimaryBlack};
+  color: ${p => p.theme.colors.authFormInputText};
   margin-bottom: 4px;
 
   &::placeholder {
@@ -94,9 +93,9 @@ export const Input = styled.input`
   }
 
   &:focus {
-    color: ${p => p.theme.colors.PrimaryBlack};
-    /* background-color: ${p => p.theme.colors.SecondGray}; */
+    color: ${p => p.theme.colors.authFormInputText};
     outline: 1px solid ${p => p.theme.colors.PrimaryOrange};
+    -moz-outline-radius: 30px;
   }
 `;
 

@@ -26,6 +26,7 @@ export const theme = {
     selectOption: '#F5F6FB',
     datePickerFutureDates: '#C7CCDC',
     statsIconsBg: '#52555F',
+    authFormInputText: '#000000',
   },
 };
 
@@ -57,6 +58,7 @@ export const darkTheme = {
     selectOption: '#C7CCDC',
     datePickerFutureDates: '#1e1603',
     statsIconsBg: '#FFDAC0',
+    authFormInputText: '#000000',
   },
 };
 
