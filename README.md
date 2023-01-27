@@ -54,7 +54,7 @@ To check it out locally, clone the repository to your machine, open it in CLI (V
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd kapusta (name of your local folder)
 ```
 
 Install dependencies
