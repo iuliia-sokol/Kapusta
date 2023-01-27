@@ -38,17 +38,6 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
   const [minusBalance, setMinusBalance] = useState(false);
   const lang = useSelector(getLang).lang;
 
-  // useEffect(() => {
-  //   if (!+balance) {
-  //     setTimeout(() => {
-  //       setShow(true);
-  //       setTimeout(() => setOpacity(1), 0);
-  //       setTimeout(() => setOpacity(0), 9400);
-  //       setTimeout(() => setShow(false), 10000);
-  //     }, 1000);
-  //   }
-  // }, [balance, lang]);
-
   useEffect(() => {
     setBalance(savedBalance);
     setMinusBalance(false);
