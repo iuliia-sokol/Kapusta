@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const NotificationContainer = styled.div`
-  position: absolute;
-  z-index: 1000;
-
-  @media screen and (min-width: 480px) {
-    transform: translateY(80px);
-  }
+  /* transform: translateY(200px); */
 
   @media screen and (min-width: 768px) {
-    transform: translateY(0px);
+    /* transform: translateY(125px); */
+  }
+
+  @media screen and (min-width: 1280px) {
+    /* transform: translateY(120px); */
   }
 `;
 
@@ -25,7 +24,6 @@ export const Triangle = styled.div`
 
 export const StyledWindow = styled.div`
   display: block;
-  width: 280px;
   box-sizing: border-box;
   position: relative;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
@@ -35,10 +33,13 @@ export const StyledWindow = styled.div`
   opacity: 0;
   transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media screen and (min-width: 320px) {
+    width: 280px;
+  }
   @media screen and (min-width: 768px) {
-    height: 152px;
+    min-height: 152px;
     width: 288px;
-    /* display: none; */
+    padding: 40px 29px;
   }
 `;
 

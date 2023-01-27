@@ -41,7 +41,6 @@ export const fetchCurrentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     try {
       const state = getState();
-
       const accessToken = state.auth.token;
       setToken(accessToken);
       const { data } = await instance.get('/user');
@@ -53,7 +52,14 @@ export const fetchCurrentUser = createAsyncThunk(
         message: data.message,
       };
       console.log(error.message);
-      Notiflix.Notify.failure(`Please login again!`, notifySettings);
+      const state = getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.failure(`Please login again!`, notifySettings)
+        : Notiflix.Notify.failure(
+            `Будь ласка, залогіньтесь знову!`,
+            notifySettings
+          );
       return rejectWithValue(error);
     }
   }
@@ -65,23 +71,44 @@ export const registerUser = createAsyncThunk(
     try {
       const { data } = await instance.post('/auth/register', userData);
       if (data) {
+        const state = thunkAPI.getState();
+        const { lang } = state.language.lang;
+        lang === 'en'
+          ? Notiflix.Notify.success(
+              'Account was successfully created!',
+              notifySettings
+            )
+          : Notiflix.Notify.success(
+              'Акаунт успішно зареєстровано!',
+              notifySettings
+            );
         try {
           const results = await instance.post('/auth/login', userData);
           setToken(results.data.accessToken);
           return results.data;
-        } catch (e) {
-          return e;
+        } catch (error) {
+          return error;
         }
       }
     } catch (error) {
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+
       if (error.request.status === 409) {
-        Notiflix.Notify.warning(
-          `User with this email already exists`,
-          notifySettings
-        );
+        lang === 'en'
+          ? Notiflix.Notify.warning(
+              `User with this email already exists`,
+              notifySettings
+            )
+          : Notiflix.Notify.warning(
+              `Користувач з цим емейлом вже реєструвався`,
+              notifySettings
+            );
         return thunkAPI.rejectWithValue(error.request.status);
       }
-      Notiflix.Notify.failure(`${error.message}`, notifySettings);
+      lang === 'en'
+        ? Notiflix.Notify.failure(`${error.message}`, notifySettings)
+        : Notiflix.Notify.failure(`Щось пішло не так...`, notifySettings);
       return thunkAPI.rejectWithValue(error.request.status);
     }
   }
@@ -93,9 +120,24 @@ export const loginUser = createAsyncThunk(
     try {
       const { data } = await instance.post('/auth/login', userData);
       setToken(data.accessToken);
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.success(
+            `Welcome back, ${data.userData.email}!`,
+            notifySettings
+          )
+        : Notiflix.Notify.success(
+            `Радо вітаємо, ${data.userData.email}!`,
+            notifySettings
+          );
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(`${error.message}`, notifySettings);
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.failure(`${error.message}`, notifySettings)
+        : Notiflix.Notify.failure(`Щось пішло не так...`, notifySettings);
       return thunkAPI.rejectWithValue(error.request.status);
     }
   }
@@ -106,9 +148,24 @@ export const logoutUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       await instance.post(`/auth/logout`);
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.info(
+            'Stay safe and see you again &#9996;',
+            notifySettings
+          )
+        : Notiflix.Notify.info(
+            'Бережіть себе і до зустрічі &#9996;',
+            notifySettings
+          );
       setToken(null);
     } catch (error) {
-      Notiflix.Notify.failure(`${error.message}`, notifySettings);
+      const state = thunkAPI.getState();
+      const { lang } = state.language.lang;
+      lang === 'en'
+        ? Notiflix.Notify.failure(`${error.message}`, notifySettings)
+        : Notiflix.Notify.failure(`Щось пішло не так...`, notifySettings);
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -127,6 +184,7 @@ export const googleAuthUser = createAsyncThunk(
         status,
         message: data.message,
       };
+      console.log(error);
       return rejectWithValue(error);
     }
   }

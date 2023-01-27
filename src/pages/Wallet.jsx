@@ -11,22 +11,29 @@ import { useSelector } from 'react-redux';
 import { selectBalance } from 'redux/transactions/transactionsSelectors';
 import { useEffect } from 'react';
 import { notifySettings } from 'utils/notifySettings';
+import { getLang } from 'redux/lang/langSelectors';
 
 const WalletPage = ({ isHintShown, setIsHintShown }) => {
   const savedBalance = Number(useSelector(selectBalance)).toFixed(2);
+  const lang = useSelector(getLang).lang;
 
   useEffect(() => {
     if (isHintShown) {
       return;
     }
     if (savedBalance < 0) {
-      Notiflix.Notify.info(
-        `&#9757; Oops, you have negative balance`,
-        notifySettings
-      );
+      lang === 'en'
+        ? Notiflix.Notify.info(
+            `&#9757; Oops, you have negative balance`,
+            notifySettings
+          )
+        : Notiflix.Notify.info(
+            `&#9757; Ой, у вас негативний баланс`,
+            notifySettings
+          );
       setIsHintShown(true);
     }
-  }, [isHintShown, savedBalance, setIsHintShown]);
+  }, [isHintShown, lang, savedBalance, setIsHintShown]);
 
   return (
     <Container>

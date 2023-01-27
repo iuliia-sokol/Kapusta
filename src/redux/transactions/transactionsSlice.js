@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCurrentUser, loginUser } from 'redux/auth/authOperations';
+import {
+  fetchCurrentUser,
+  loginUser,
+  registerUser,
+} from 'redux/auth/authOperations';
 import {
   fetchUserBalance,
   addTransactionOp,
@@ -98,6 +102,12 @@ const transactionsSlice = createSlice({
         state.isLoadinng = false;
         state.error = payload;
       })
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        state.isLoadinng = false;
+        state.error = null;
+        console.log('register', payload);
+        state.balance = 0;
+      })
       .addCase(loginUser.pending, state => {
         state.isLoadinng = true;
         state.error = null;
@@ -105,6 +115,7 @@ const transactionsSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.isLoadinng = false;
         state.error = null;
+        console.log('loginUser', payload);
         state.balance = payload.userData.balance;
       })
       .addCase(loginUser.rejected, (state, { payload }) => {})
@@ -115,7 +126,7 @@ const transactionsSlice = createSlice({
       .addCase(fetchUserBalance.fulfilled, (state, { payload }) => {
         state.error = null;
         state.isLoadinng = false;
-
+        console.log('payload', payload);
         payload && (state.balance = payload.newBalance);
       })
       .addCase(fetchUserBalance.rejected, (state, { payload }) => {

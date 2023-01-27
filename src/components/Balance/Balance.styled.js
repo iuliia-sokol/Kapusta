@@ -29,34 +29,8 @@ export const BalanceContainer = styled.div`
   }
 `;
 
-export const PortalContainer = styled.div`
-  height: 0;
-  width: 125px;
-  padding-left: 68px;
-  padding-right: 141px;
-`;
-
-export const AbsoluteContainer = styled(BalanceContainer)`
-  box-sizing: border-box;
-  top: 144px;
-  height: 0;
-  width: 100%;
-  position: absolute;
-  margin: 0 auto;
-  padding: 0 91px;
-
-  @media screen and (max-width: 768px) {
-    padding: 0 32px;
-  }
-
-  @media screen and (max-width: 480px) {
-    top: 232px;
-    left: -22px;
-    padding: 0 20px;
-  }
-`;
-
 export const BalanceForm = styled.div`
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,7 +51,12 @@ export const BalanceForm = styled.div`
   }
 `;
 
-export const BalanceFormNotification = styled(BalanceForm)``;
+export const BalanceFormNotification = styled.div`
+  position: absolute;
+  top: 40px;
+  right: -100%;
+  z-index: 1000;
+`;
 
 export const Text = styled.label`
   font-weight: 500;

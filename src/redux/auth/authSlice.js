@@ -36,10 +36,6 @@ export const authSlice = createSlice({
         state.user.id = payload.userData.id;
         state.token = payload.accessToken;
         state.isLoggedIn = true;
-        Notiflix.Notify.success(
-          'Acount was successfully created',
-          notifySettings
-        );
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -55,19 +51,10 @@ export const authSlice = createSlice({
         state.user.id = payload.userData.id;
         state.token = payload.accessToken;
         state.isLoggedIn = true;
-
-        Notiflix.Notify.success(
-          `Welcome back, ${payload.userData.email}!`,
-          notifySettings
-        );
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.error = payload;
         state.isLoading = false;
-        Notiflix.Notify.failure(
-          'Something went wrong, please try again',
-          notifySettings
-        );
       })
       .addCase(logoutUser.pending, onPending)
       .addCase(logoutUser.fulfilled, (state, _) => {
@@ -77,19 +64,10 @@ export const authSlice = createSlice({
         state.sid = null;
         state.refreshToken = null;
         state.isLoggedIn = false;
-
-        Notiflix.Notify.info(
-          'Stay safe and see you again &#9996;',
-          notifySettings
-        );
       })
       .addCase(logoutUser.rejected, (state, { payload }) => {
         state.error = payload;
         state.isLoading = false;
-        Notiflix.Notify.failure(
-          'Something went wrong, please try again',
-          notifySettings
-        );
       })
       .addCase(fetchCurrentUser.pending, onPending)
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {

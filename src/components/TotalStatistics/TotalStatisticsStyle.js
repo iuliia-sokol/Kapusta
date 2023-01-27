@@ -5,7 +5,7 @@ const TotalStatsStyle = {
   BoxStats: styled.div`
     box-sizing: border-box;
     height: 85px;
-    width: 70%;
+    width: 90%;
     padding: 20px 10px;
     display: block;
     text-align: center;

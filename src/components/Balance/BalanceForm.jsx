@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+// import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
@@ -13,8 +13,7 @@ import {
   BalanceForm,
   Input,
   BaseContainer,
-  PortalContainer,
-  AbsoluteContainer,
+  BalanceFormNotification,
 } from './Balance.styled';
 import { Notification } from 'components/StartNotification/Notification';
 import { Popup } from 'components/Popup/Popup';
@@ -33,9 +32,22 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
     action: null,
   });
 
+  const [show, setShow] = useState(false);
+  const [opacity, setOpacity] = useState(0);
   const [balance, setBalance] = useState(savedBalance ?? 0);
   const [minusBalance, setMinusBalance] = useState(false);
   const lang = useSelector(getLang).lang;
+
+  useEffect(() => {
+    if (!+balance) {
+      setTimeout(() => {
+        setShow(true);
+        setTimeout(() => setOpacity(1), 0);
+        setTimeout(() => setOpacity(0), 9400);
+        setTimeout(() => setShow(false), 10000);
+      }, 1000);
+    }
+  }, [balance, lang]);
 
   useEffect(() => {
     setBalance(savedBalance);
@@ -77,7 +89,7 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
 
     setPopup({
       isShow: true,
-      title: 'Are you sure?',
+      title: lang === 'en' ? 'Are you sure?' : 'Ви впевнені?',
       action: () => dispatch(fetchUserBalance({ balance })),
     });
     document.querySelector('#modal').classList.add('js-action');
@@ -111,15 +123,10 @@ export function BalanceFrom({ btnDisplay = false, page = 'wallet' }) {
             ) : (
               <CurrentBalance>грн</CurrentBalance>
             )}
-            {createPortal(
-              <AbsoluteContainer>
-                <BalanceForm>
-                  <PortalContainer>
-                    <Notification money={balance} />
-                  </PortalContainer>
-                </BalanceForm>
-              </AbsoluteContainer>,
-              document.querySelector('#balance')
+            {show && (
+              <BalanceFormNotification>
+                <Notification setShow={setShow} lang={lang} opacity={opacity} />
+              </BalanceFormNotification>
             )}
           </CurrentBalanceContainer>
           <StyledBtn
