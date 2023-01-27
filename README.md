@@ -5,13 +5,13 @@ Keeping your financial life organized can help you save time and money.
 
 Kapu$ta is a finance management App, that can be helpful for saving and managing information of user`s financial activities and provides financial infographics for selected period of time. It's main goal, lets say, is to keep user from overspending.
 
-Kapu$ta might attract both users, who prefer to keep their bills and financial records well organized, and ones, willing to make it a habit to review their budget in order to improve their financial well-being.
+Kapu$ta might attract both users, who prefer to keep their bills and financial records well organised, and ones, willing to make it a habit to review their budget in order to improve their financial well-being.
 
 
 
 ## Authors
 
-- This project was initially created as a team project of the group of GoIT school Bootcamp 34 collaborators (list of all collaborators can be found in repositiry information) and later radically refactored, debugged and improved by me.
+- This project was initially created as a team project of the group of GoIT school Bootcamp 34 collaborators (list of all collaborators can be found in repository information) and later radically refactored, debugged and improved by me.
 
 
 
