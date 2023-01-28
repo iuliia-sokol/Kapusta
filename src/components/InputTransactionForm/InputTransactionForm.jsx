@@ -140,7 +140,7 @@ export default function InputTransactionForm({ type }) {
           : Object.keys(API_TRANSACTION[type].apiCategoriesUK)[category.value],
     };
 
-    console.log(transaction);
+    // console.log(transaction);
     dispatch(addTransactionOp({ type, transaction }));
     onClearForm();
   };

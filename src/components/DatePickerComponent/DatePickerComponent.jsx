@@ -13,8 +13,8 @@ export function DatePickerComponent({ date, maxDate, handler }) {
   const lang = useSelector(getLang).lang;
   return (
     <>
-      <Label className="label">
-        <svg className="iconCalendar" width="20" height="20">
+      <Label>
+        <svg width="20" height="20">
           <use href={sprite + `#calendar`} />
         </svg>
         <Wrapper>
