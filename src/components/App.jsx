@@ -57,7 +57,7 @@ export const App = () => {
     const sid = searchParams.get('sid');
     if (!accessToken) return;
     dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
-    // navigate('/wallet');
+    navigate('/wallet');
   }, [searchParams, dispatch, navigate]);
 
   return (
