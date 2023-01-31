@@ -30,7 +30,7 @@ Features developed by me: login/register pages, animation, custom loader, date-p
 
 **Front:** React, Redux
 
-**Back:** Swagger: https://github.com/DanTsvirkun/kapusta-backend
+**Back:** Swagger: https://kapusta-backend.goit.global/api-docs/
 
 **Libraries:** Axios, Styled Components, React Datepicker, React Select, React Icons, Notiflix, Recharts
 
