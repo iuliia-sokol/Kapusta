@@ -171,34 +171,21 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-// export const googleAuthUser = createAsyncThunk(
-//   'auth/google',
-//   async ({ accessToken, refreshToken, sid }, { rejectWithValue }) => {
-//     setToken(accessToken);
-//     try {
-//       const { data } = await instance.get('/user');
-//       return { accessToken, refreshToken, sid, data };
-//     } catch ({ response }) {
-//       const { status, data } = response;
-//       const error = {
-//         status,
-//         message: data.message,
-//       };
-//       console.log(error);
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
-
 export const googleAuthUser = createAsyncThunk(
   'auth/google',
-  async ({ accessToken, refreshToken, sid }) => {
+  async ({ accessToken, refreshToken, sid }, { rejectWithValue }) => {
     setToken(accessToken);
     try {
       const { data } = await instance.get('/user');
       return { accessToken, refreshToken, sid, data };
-    } catch (error) {
+    } catch ({ response }) {
+      const { status, data } = response;
+      const error = {
+        status,
+        message: data.message,
+      };
       console.log(error);
+      return rejectWithValue(error);
     }
   }
 );
