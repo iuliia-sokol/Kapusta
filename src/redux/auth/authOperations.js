@@ -194,7 +194,6 @@ export const googleAuthUser = createAsyncThunk(
   'auth/google',
   async ({ accessToken, refreshToken, sid }) => {
     setToken(accessToken);
-
     try {
       const { data } = await instance.get('/user');
       return { accessToken, refreshToken, sid, data };

@@ -100,7 +100,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/wallet" />} />
         </Route>
       </Routes>
     </ThemeProvider>
