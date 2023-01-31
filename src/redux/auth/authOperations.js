@@ -203,8 +203,3 @@ export const googleAuthUser = createAsyncThunk(
     }
   }
 );
-
-// https://iuliia-sokol.github.io/
-// ? accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Q4ZjRiMmRiN2E4MTA4MTQwNDhiYTQiLCJzaWQiOiI2M2Q4ZjRjMGRiN2E4MTA4MTQwNDhiYTciLCJpYXQiOjE2NzUxNjI4MTYsImV4cCI6MTY3NTE2NjQxNn0.L16RLck24s7U2wmi0IzEvKSDnuHZWbZ3Ie7H - TSGd8g &
-//   refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Q4ZjRiMmRiN2E4MTA4MTQwNDhiYTQiLCJzaWQiOiI2M2Q4ZjRjMGRiN2E4MTA4MTQwNDhiYTciLCJpYXQiOjE2NzUxNjI4MTYsImV4cCI6MTY3Nzc5MDgxNn0.yx7Y65O_Da8lmRto62 - REGtlP7sl9KqKlzWmR0V1f - A &
-//     sid=63d8f4c0db7a810814048ba7

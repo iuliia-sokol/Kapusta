@@ -101,9 +101,6 @@ export const App = () => {
             }
           />
           <Route path="*" element={<Navigate to="/" />} />
-          {/* <Route path="api/auth/google-redirect"
-          // element={<GoogleLoader />}
-        /> */}
         </Route>
       </Routes>
     </ThemeProvider>
