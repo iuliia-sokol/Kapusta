@@ -9,7 +9,7 @@ export const Layout = () => {
   // const isLoggedIn = useSelector(getLogStatus);
   return (
     <>
-      <Header></Header>
+      <Header/>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

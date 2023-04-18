@@ -22,15 +22,28 @@ const persistConfig = {
   whitelist: ['user', 'token', 'refreshToken', 'sid', 'isLoggedIn'],
 };
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
+
+const langPersistConfig = {
+  key: 'language',
+  storage,
+};
+
+
 const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
+const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
+const persistedLangReducer = persistReducer(langPersistConfig, languageReducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     transactions: transactionsReducer,
     statistics: statsReducer,
-    language: languageReducer,
-    theme: themeReducer,
+    language: persistedLangReducer,
+    theme: persistedThemeReducer,
   },
 
   middleware: getDefaultMiddleware =>
