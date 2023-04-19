@@ -9,7 +9,9 @@ Kapu$ta might attract both users, who prefer to keep their bills and financial r
 
 ## Demo
 
-
+![How it works](register.gif)
+![How it works](first.gif)
+![How it works](charts.gif)
 
 ## Authors
 
