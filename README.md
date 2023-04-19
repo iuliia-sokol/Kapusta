@@ -7,6 +7,8 @@ Kapu$ta is a finance management App, that can be helpful for saving and managing
 
 Kapu$ta might attract both users, who prefer to keep their bills and financial records well organised, and ones, willing to make it a habit to review their budget in order to improve their financial well-being.
 
+## Demo
+
 
 
 ## Authors

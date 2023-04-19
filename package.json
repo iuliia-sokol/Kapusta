@@ -2,7 +2,7 @@
   "name": "kapusta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https:///iuliia-sokol.github.io/kapusta/",
+  "homepage": "https://iuliia-sokol.github.io/kapusta/",
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.1",
